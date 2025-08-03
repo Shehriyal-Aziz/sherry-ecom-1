@@ -1,19 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tech2etc Ecommerce Tutorial</title>
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Cara</title>
+    <!-- fontawsome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2.css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-papNM4z+Y9O1v1b7gW5i6IopztpJ+V9G+cnHO2lZrFqWkFyXp3PoMa/n5yR6Bo2tFQp5FocB4N+Q6YB9+YxK5A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- favicon -->
+    <link rel="icon" type="image/png" href="/assets/img/fav2.png" />
+    <!-- css sheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
 
-        <link rel="stylesheet" href="style.css">
-    </head>
 
-    <body>
+</head>
 
-        <script src="script.js"></script>
-    </body>
+<body>
+    <!-- navbar -->
+    <section id="header">
+        <a href="#"><img src="assets/img/logo.png" class="logo " alt=""></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a  class="active" href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class=" fa-solid fa-bag-shopping"></i></a></li>
+                <a href="#"><i id="close" class="fas fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <i id="bar" class="fa-solid fa-outdent"> </i>
+        </div>
+    </section>
+    <!-- hero section -->
+    <section id="page-header">
+        <h2>Shop Online</h2>
+        <p>Save more with coupons & up to 70% off!</p>
+    </section>
+    <!-- featured product -->
+    <section id="product1" class="section-p1">
+       
+        <div class="pro-container"  onclick="location.href='sproduct.html'" >
+            <div class="pro">
+                <img src="assets/img/products/f1.jpg" alt="">
+                <div class="des">
+                    <span>addidas</span>
+                    <h5>Cartoon Astrounut T-shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>2,999 PKR</h4>
+                </div>
+                <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
+            </div>
+            <div class="pro">
+                <img src="assets/img/products/f2.jpg" alt="">
+                <div class="des">
+                    <span>addidas</span>
+                    <h5> Flower T-shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>2,999 PKR</h4>
+                </div>
+                <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
+            </div>
+            <div class="pro">
+                <img src="assets/img/products/f3.jpg" alt="">
+                <div class="des">
+                    <span>addidas</span>
+                    <h5>Sleeveless T-shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>2,999 PKR</h4>
+                </div>
+                <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
+            </div>
+            <div class="pro">
+                <img src="assets/img/products/f4.jpg" alt="">
+                <div class="des">
+                    <span>addidas</span>
+                    <h5>Comfort T-shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>2,999 PKR</h4>
+                </div>
+                <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
+            </div>
+            <div class="pro">
+                <img src="assets/img/products/f5.jpg" alt="">
+                <div class="des">
+                    <span>addidas</span>
+                    <h5> Nighty shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>2,999 PKR</h4>
+                </div>
+                <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
+            </div>
+            <div class="pro">
+                <img src="assets/img/products/f6.jpg" alt="">
+                <div class="des">
+                    <span>addidas</span>
+                    <h5>Trendy T-shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>2,999 PKR</h4>
+                </div>
+                <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
+            </div>
+            <div class="pro">
+                <img src="assets/img/products/f7.jpg" alt="">
+                <div class="des">
+                    <span>addidas</span>
+                    <h5>open shorts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>2,999 PKR</h4>
+                </div>
+                <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
+            </div>
+            <div class="pro">
+                <img src="assets/img/products/f8.jpg" alt="">
+                <div class="des">
+                    <span>addidas</span>
+                    <h5>top for girls</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>2,999 PKR</h4>
+                </div>
+                <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
+            </div>
+
+        
+    
+        
+            <div class="pro">
+                <img src="assets/img/products/n1.jpg" alt="">
+                <div class="des">
+                    <span>addidas</span>
+                    <h5>sky blue shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>2,999 PKR</h4>
+                </div>
+                <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
+            </div>
+            <div class="pro">
+                <img src="assets/img/products/n2.jpg" alt="">
+                <div class="des">
+                    <span>addidas</span>
+                    <h5> gray shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>2,999 PKR</h4>
+                </div>
+                <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
+            </div>
+            <div class="pro">
+                <img src="assets/img/products/n3.jpg" alt="">
+                <div class="des">
+                    <span>addidas</span>
+                    <h5>half-white shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>2,999 PKR</h4>
+                </div>
+                <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
+            </div>
+            <div class="pro">
+                <img src="assets/img/products/n4.jpg" alt="">
+                <div class="des">
+                    <span>addidas</span>
+                    <h5> trendy shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>2,999 PKR</h4>
+                </div>
+                <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
+            </div>
+            <div class="pro">
+                <img src="assets/img/products/n5.jpg" alt="">
+                <div class="des">
+                    <span>addidas</span>
+                    <h5> blue check shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>2,999 PKR</h4>
+                </div>
+                <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
+            </div>
+            <div class="pro">
+                <img src="assets/img/products/n6.jpg" alt="">
+                <div class="des">
+                    <span>addidas</span>
+                    <h5>office short</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>2,999 PKR</h4>
+                </div>
+                <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
+            </div>
+            <div class="pro">
+                <img src="assets/img/products/n7.jpg" alt="">
+                <div class="des">
+                    <span>addidas</span>
+                    <h5>mate dust shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>2,999 PKR</h4>
+                </div>
+                <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
+            </div>
+            <div class="pro">
+                <img src="assets/img/products/n8.jpg" alt="">
+                <div class="des">
+                    <span>addidas</span>
+                    <h5>navy brown shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>2,999 PKR</h4>
+                </div>
+                <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- pagination -->
+    <section id="pagination" class="section-p1">
+        <div class="pagination">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">Next <i class="fas fa-arrow-right"></i></a>
+
+        </div>
+    </section>
+
+    <!-- newsletter -->
+    <section id="newsletter" class="section-p1 section-m1 ">
+        <div class="newstext">
+            <h4>Sign Up For Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="you email address">
+            <button class="normal">Sing Up</button>
+        </div>
+
+    </section>
+    <!-- footer -->
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="/assets/img/logo.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> Shaheed Makhdoom Bilawal near kiran hospital karachi </p>
+            <p><strong>phone:</strong>+92 3162830005</p>
+            <p><strong>hours:</strong> 24/7 Mon - Sun</p>
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-linkedin"></i>
+                    <i class="fab fa-github"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="about.html"> About Us </a>
+            <a href="#"> Delivery Information </a>
+            <a href="#"> Privacy Information </a>
+            <a href="#"> Terms & Conditions </a>
+            <a href="contact.html"> Contact Us </a>
+        </div>
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#newsletter"> Sign In </a>
+            <a href="#"> View Cart </a>
+            <a href="#"> My Wishlist </a>
+            <a href="#"> Track My Order</a>
+            <a href="contact.html"> Help </a>
+        </div>
+
+        <div class="copyright">
+            <p>@ 2025, Shehriyal Aziz -First Website, All Rights Are Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
 
 </html>

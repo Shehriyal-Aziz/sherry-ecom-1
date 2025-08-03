@@ -575,7 +575,115 @@ footer .copyright {
 
 }
 
-/* media querry homapge */
+/* shop page */
+#page-header {
+  background-image: url("/assets/img/banner/b1.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 40vh;
+  width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 14px;
+}
+#page-header h2,p{
+  color: white;
+}
+
+#pagination{
+ text-align: center;
+  
+}
+#pagination a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #088178;
+  padding: 15px 20px;
+  font-weight: 600;
+  border-radius: 4px;
+  border: 1px solid #088178;
+  
+}
+#pagination a:hover {
+  background-color: #fff;
+  color: #088178;
+  transition: 0.3s;
+}
+#pagination a i{
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* single product page */
+
+#prodetails{
+  display: flex;
+  margin-top: 20px;
+}
+
+#prodetails .single-pro-image {
+  width: 40%;
+  margin-right: 50px;
+}
+.small-img-group{
+  display: flex;
+  justify-content: space-between;
+}
+
+.small-img-col {
+  flex-basis: 24%;
+  cursor: pointer;
+}
+
+#prodetails .single-pro-details{
+  width: 50%;
+  padding-top: 30px;
+}
+#prodetails .single-pro-details h4{
+  padding: 40px 0 20px 0;
+  
+}
+#prodetails .single-pro-details h2{
+  font-size: 26px;
+}
+#prodetails .single-pro-details select{
+  margin: 10px 0;
+  padding: 5px 10px;
+  display: block;
+}
+#prodetails .single-pro-details input {
+  width: 50px;
+  padding-left: 10px;
+  margin-right: 10px;
+  height: 47px;
+  font-size: 16px;
+  
+}
+#prodetails .single-pro-details input:focus{
+  outline: none;
+}
+#prodetails .single-pro-details button {
+  background-color: #088178;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+#prodetails .single-pro-details span {
+ line-height: 25px;
+}
+
+
+
+/* media querry */
+
+/*  homapge */
 
 @media (max-width:768px) {
   .section-p1 {
@@ -745,5 +853,21 @@ footer .copyright {
 footer p{
   margin-bottom: 10px;
 }
+/* single product */
+
+#prodetails {
+    display: flex;
+    flex-direction: column;
 
 }
+#prodetails .single-pro-image {
+    width: 100%;
+    margin-right: 0px;
+}
+#prodetails .single-pro-details {
+    width: 100%;
+    
+}
+
+}
+
