@@ -13,6 +13,12 @@ html {
 
 /* Global Styles */
 
+img[src$="logo.png"] {
+  width: 140px;
+  height: auto;
+  
+}
+
 h1 {
   font-size: 50px;
   line-height: 64px;
@@ -683,17 +689,7 @@ p {
   display: block;
 }
 
-/* #prodetails .single-pro-details input {
-  width: 50px;
-  padding-left: 10px;
-  margin-right: 10px;
-  height: 47px;
-  font-size: 16px;
-  
-}
-#prodetails .single-pro-details input:focus{
-  outline: none;
-} */
+
 
 .quantity-wrapper {
   font-family: Arial, sans-serif;

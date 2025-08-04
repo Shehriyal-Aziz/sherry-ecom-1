@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Cara</title>
+    <title>Reva</title>
     <!-- fontawsome cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -81,8 +81,8 @@
     <section id="product1" class="section-p1">
         <h2>featured product</h2>
         <p>summer collection new morden design</p>
-        <div class="pro-container">
-            <div class="pro">
+        <div class="pro-container" id="featured-products" >
+            <div class="pro" >
                 <img src="assets/img/products/f1.jpg" alt="">
                 <div class="des">
                     <span>addidas</span>
@@ -223,7 +223,7 @@
     <section id="product1" class="section-p1">
         <h2>new arrivals</h2>
         <p>summer collection new morden design</p>
-        <div class="pro-container">
+        <div class="pro-container" id="new-arrivals" >
             <div class="pro">
                 <img src="assets/img/products/n1.jpg" alt="">
                 <div class="des">
@@ -440,7 +440,67 @@
         </div>
     </footer>
 
+    
+    
     <script src="assets/js/script.js"></script>
+<script>
+  fetch('product.json')
+    .then(res => res.json())
+    .then(products => {
+      const featuredContainer = document.getElementById('featured-products');
+      // Pick top 8 products (you can define your logic here, like by rating, featured flag, etc.)
+      const top8 = products.slice(0, 8);
+
+      featuredContainer.innerHTML = top8.map(product => `
+        <div class="pro" onclick="location.href='sproduct.html?productId=${product.id}'">
+          <img src="${product.images[0]}" alt="${product.name}">
+          <div class="des">
+            <span>${product.brand}</span>
+            <h5>${product.name}</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>${product.price} PKR</h4>
+          </div>
+          <a href="cart.html">
+            <img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt="cart">
+          </a>
+        </div>
+      `).join('');
+    });
+
+
+    // new arrivals
+
+     fetch('product.json')
+    .then(res => res.json())
+    .then(products => {
+      // Assuming your products are sorted oldest → newest
+      const newArrivals = products.slice(-8); // Get last 8 products
+      const container = document.getElementById('new-arrivals');
+
+      container.innerHTML = newArrivals.map(product => `
+        <div class="pro" onclick="location.href='sproduct.html?productId=${product.id}'">
+          <img src="${product.images[0]}" alt="${product.name}">
+          <div class="des">
+            <span>${product.brand}</span>
+            <h5>${product.name}</h5>
+            <div class="star">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>${product.price} PKR</h4>
+          </div>
+          <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
+        </div>
+      `).join('');
+    });
+</script>
 </body>
 
 </html>
