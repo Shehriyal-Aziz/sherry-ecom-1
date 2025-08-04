@@ -234,6 +234,10 @@ body {
   text-transform: capitalize;
 }
 
+#product1 p {
+  color: black;
+}
+
 #product1 .pro-container {
   display: flex;
   justify-content: space-between;
@@ -524,8 +528,11 @@ footer .col {
   flex-direction: column;
   margin-bottom: 20px;
   align-items: flex-start;
-  
 
+}
+
+footer .col p {
+  color: #465b52;
 }
 
 footer .logo {
@@ -582,21 +589,24 @@ footer .copyright {
   background-position: center;
   height: 40vh;
   width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 14px;
 }
-#page-header h2,p{
+
+#page-header h2,
+p {
   color: white;
 }
 
-#pagination{
- text-align: center;
-  
+#pagination {
+  text-align: center;
+
 }
+
 #pagination a {
   text-decoration: none;
   color: #fff;
@@ -605,21 +615,23 @@ footer .copyright {
   font-weight: 600;
   border-radius: 4px;
   border: 1px solid #088178;
-  
+
 }
+
 #pagination a:hover {
   background-color: #fff;
   color: #088178;
   transition: 0.3s;
 }
-#pagination a i{
+
+#pagination a i {
   font-size: 16px;
   font-weight: 600;
 }
 
 /* single product page */
 
-#prodetails{
+#prodetails {
   display: flex;
   margin-top: 20px;
 }
@@ -628,7 +640,8 @@ footer .copyright {
   width: 40%;
   margin-right: 50px;
 }
-.small-img-group{
+
+.small-img-group {
   display: flex;
   justify-content: space-between;
 }
@@ -638,23 +651,39 @@ footer .copyright {
   cursor: pointer;
 }
 
-#prodetails .single-pro-details{
+.small-img-col img {
+  width: 100%;
+
+  transition: transform 0.2s ease;
+}
+
+.small-img-col img:hover {
+  transform: scale(1.03);
+  border-radius: 4px;
+  opacity: 0.8;
+}
+
+#prodetails .single-pro-details {
   width: 50%;
   padding-top: 30px;
 }
-#prodetails .single-pro-details h4{
+
+#prodetails .single-pro-details h4 {
   padding: 40px 0 20px 0;
-  
+
 }
-#prodetails .single-pro-details h2{
+
+#prodetails .single-pro-details h2 {
   font-size: 26px;
 }
-#prodetails .single-pro-details select{
+
+#prodetails .single-pro-details select {
   margin: 10px 0;
   padding: 5px 10px;
   display: block;
 }
-#prodetails .single-pro-details input {
+
+/* #prodetails .single-pro-details input {
   width: 50px;
   padding-left: 10px;
   margin-right: 10px;
@@ -664,8 +693,65 @@ footer .copyright {
 }
 #prodetails .single-pro-details input:focus{
   outline: none;
+} */
+
+.quantity-wrapper {
+  font-family: Arial, sans-serif;
+  margin: 20px 0;
 }
-#prodetails .single-pro-details button {
+
+.quantity-label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.quantity {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  overflow: hidden;
+  width: fit-content;
+  align-items: center;
+  border: #041e42 1px solid;
+  height: 40px;
+}
+
+.quantity button {
+  width: 32px;
+  height: 40px;
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+  border-right: #e3e6f3 1px solid;
+  border-left: #e3e6f3 1px solid;
+
+}
+
+.quantity input {
+
+  font-size: 1.6rem;
+  font-weight: 200;
+  opacity: .85;
+  text-align: center;
+  background-color: transparent;
+  border: 0;
+  text-align: center;
+  width: 120px;
+  height: 42px;
+  border-left: 1px solid;
+  border-right: 1px solid;
+}
+
+.quantity input:focus {
+  outline: none;
+}
+.quantity button:active {
+  background-color: #f0f0f0;
+}
+
+#prodetails .single-pro-details .atc {
   background-color: #088178;
   color: #fff;
   border: none;
@@ -673,13 +759,34 @@ footer .copyright {
   font-weight: 600;
   font-size: 16px;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 8px;
+  margin: 20px 0;
+  width: 75%;
+  max-width: 400px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
 #prodetails .single-pro-details span {
- line-height: 25px;
+  line-height: 25px;
 }
 
+.single-pro-details p{
+  font-size: 16px;
+  color: #000;
+}
 
+.single-pro-details h3{
+  color: #000;
+  margin: 20px 0;
+  text-decoration: underline;
+
+}
+.single-pro-details ul li{
+  font-size: 16px;
+ list-style: none;
+  color: #000;
+  margin-bottom: 5px;
+}
 
 /* media querry */
 
@@ -785,89 +892,110 @@ footer .copyright {
   #newsletter .form {
     width: 70%;
   }
-  footer .col {
-  width: 30%;
 
-}
+  footer .col {
+    width: 30%;
+
+  }
 
 }
 
 @media (max-width: 480px) {
-  .section-p1{
+  .section-p1 {
     padding: 20px;
   }
-  #header{
+
+  #header {
     padding: 10px 30px;
   }
-  h1{
+
+  h1 {
     font-size: 38px;
   }
-  h2{
+
+  h2 {
     font-size: 32px;
   }
-  #hero{
+
+  #hero {
     padding: 0 20px;
-    
+
   }
+
   #feature .fe-box {
-   
+
     width: 155px;
     margin: 0 0 15px 0;
-}
-#feature{
-  justify-content: space-between;
-}
-#product1 .pro {
+  }
+
+  #feature {
+    justify-content: space-between;
+  }
+
+  #product1 .pro {
     width: 100%;
-    
-}
-#banner {
-    height: 40vh;
-}
-#sm-banner .banner-box {
-    height: 40vh;
-}
-#sm-banner h2{
-  line-height: 35px;
-}
-#banner3{
-  padding: 0 20px;
-}
-.banner .banner-box {
-  width: 100%;
-}
-#banner3 .banner-box{
-  width: 100%;
-}
 
-#newsletter{
-  padding: 40px 20px;
-}
-#newsletter .form{
-  width: 100%;
-}
-#newsletter .newstext p {
-  font-size: 20px;
-  font-weight: 400;
-}
-footer p{
-  margin-bottom: 10px;
-}
-/* single product */
+  }
 
-#prodetails {
+  #banner {
+    height: 40vh;
+  }
+
+  #sm-banner .banner-box {
+    height: 40vh;
+  }
+
+  #sm-banner h2 {
+    line-height: 35px;
+  }
+
+  #banner3 {
+    padding: 0 20px;
+  }
+
+  .banner .banner-box {
+    width: 100%;
+  }
+
+  #banner3 .banner-box {
+    width: 100%;
+  }
+
+  #newsletter {
+    padding: 40px 20px;
+  }
+
+  #newsletter .form {
+    width: 100%;
+  }
+
+  #newsletter .newstext p {
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  footer p {
+    margin-bottom: 10px;
+  }
+
+  /* single product */
+
+  #prodetails {
     display: flex;
     flex-direction: column;
 
-}
-#prodetails .single-pro-image {
+  }
+
+  #prodetails .single-pro-image {
     width: 100%;
     margin-right: 0px;
-}
-#prodetails .single-pro-details {
+  }
+
+  #prodetails .single-pro-details {
     width: 100%;
-    
-}
 
+  }
+  #prodetails .single-pro-details .atc {
+  width: 100%;
 }
-
+}

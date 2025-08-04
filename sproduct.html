@@ -64,9 +64,9 @@
 
         </div>
         <div class="single-pro-details">
-            <h6> Home / T-Shirt</h6>
-            <h4>Man's Fashion T-Shirt</h4>
-            <h2>2,999 PKR</h2>
+            <h6> Embroidered | Dull Raw Silk</h6>
+            <h4>3 Piece Lawn Suit-Printed (Unstitched)</h4>
+            <h2>PKR 6,000</h2>
             <select>
                 <option>Select Size</option>
                 <option>Small</option>
@@ -75,20 +75,43 @@
                 <option>XL</option>
                 <option>XLL</option>
             </select>
-            <input type="number" value="1">
-            <button  class="">Add To Cart</button>
-            <h4>Product details</h4>
-            <span>
-                The Gildan Ultra Cotton T-shirt is made from a substantial 6.0 oz. per
-            sq. yd. fabric constructed from 100% cotton, this classic fit preshrunk
-            jersey knit provides unmatched comfort with each wear. Featuring a taped neck
-            and shoulder, and a seamless double-needle collar, and available in a range
-            of colors, it offers it all in the ultimate head-turning package.</span>
+
+            <!-- <input type="number" value="1"> -->
+            <div class="quantity-wrapper">
+                <label class="quantity-label">Quantity</label>
+                <div class="quantity">
+                    <button onclick="decrement()">−</button>
+                    <input type="text" id="qty" value="1" readonly>
+                    <button onclick="increment()">+</button>
+                </div>
+            </div>
+            <button class="atc">Add To Cart</button>
+            <hr>
+            <h3>Description</h3>
+            <ul>
+                <li><span><strong>Shirt</strong><br></span></li>
+                <li><span>Printed shirt M <br></span></li>
+                <li><span>Fabric: lawn</span></li>
+
+                <li><span><strong>Dupata</strong><br></span></li>
+                <li><span>Printed dupata M </span></li>
+                <li><span>Fabric: chiffon</span></li>
+
+                <li><span><strong>Trouser</strong><br></span></li>
+                <li><span>Printed trouser M</span></li>
+                <li><span>Fabric: Cambric</span></li>
+
+                <li><span><strong>Other Details</strong><br></span></li>
+                <li><span>Color: Blue</span></li>
+                <li><span>Weight: 500g</span></li>
+
+            </ul>
+           
         </div>
     </section>
     <!-- related product -->
-     <section id="product1" class="section-p1">
-        <h2>featured product</h2>
+    <section id="product1" class="section-p1">
+        <h2>you may also like</h2>
         <p>summer collection new morden design</p>
         <div class="pro-container" onclick="location.href='sproduct.html'">
             <div class="pro">
@@ -155,7 +178,7 @@
                 </div>
                 <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
             </div>
-            
+
         </div>
     </section>
     <!-- newsletter -->
@@ -215,17 +238,31 @@
         var MainImg = document.getElementById("MainImg");
         var SmallImg = document.getElementsByClassName("small-img");
 
-        SmallImg[0].onclick = function (){
+        SmallImg[0].onclick = function () {
             MainImg.src = SmallImg[0].src;
         }
-        SmallImg[1].onclick = function (){
+        SmallImg[1].onclick = function () {
             MainImg.src = SmallImg[1].src;
         }
-        SmallImg[2].onclick = function (){
+        SmallImg[2].onclick = function () {
             MainImg.src = SmallImg[2].src;
         }
-        SmallImg[3].onclick = function (){
+        SmallImg[3].onclick = function () {
             MainImg.src = SmallImg[3].src;
+        }
+
+        function increment() {
+            const input = document.getElementById("qty");
+            let value = parseInt(input.value);
+            input.value = value + 1;
+        }
+
+        function decrement() {
+            const input = document.getElementById("qty");
+            let value = parseInt(input.value);
+            if (value > 1) {
+                input.value = value - 1;
+            }
         }
 
     </script>
