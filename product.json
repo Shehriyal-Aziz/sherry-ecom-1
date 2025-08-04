@@ -1,0 +1,484 @@
+[
+  {
+    "id": 1,
+    "brand": "Reva",
+    "name": "3 Piece Lawn Suit-Printed (Unstitched)",
+    "price":   "3,499" ,
+    "images": [
+      "assets/img/products/p1.webp",
+      "assets/img/products/p2.webp",
+      "assets/img/products/p3.webp",
+      "assets/img/products/p4.webp"
+    ],
+    "description": {
+  "Shirt": [
+    "Printed shirt M",
+    "Fabric: lawn"
+  ],
+  "Dupatta": [
+    "Printed dupatta M",
+    "Fabric: chiffon"
+  ],
+  "Trouser": [
+    "Printed trouser M",
+    "Fabric: Cambric"
+  ],
+  "Other Details": [
+    "Color: Blue",
+    "Weight: 500g"
+  ]
+}
+    
+
+  },
+  {
+    "id": 2,
+    "brand": "Reva",
+    "name": "3 Piece Lawn Suit-Printed (Unstitched)",
+    "price":   "3,399" ,
+    "images": [
+      "assets/img/products/p5.webp",
+      "assets/img/products/p6.webp",
+      "assets/img/products/p7.webp",
+      "assets/img/products/p8.webp"
+    ],
+   "description": {
+  "Shirt": [
+    "Printed shirt M",
+    "Fabric: lawn"
+  ],
+  "Dupatta": [
+    "Printed dupatta M",
+    "Fabric: chiffon"
+  ],
+  "Trouser": [
+    "Printed trouser M",
+    "Fabric: Cambric"
+  ],
+  "Other Details": [
+    "Color: purple",
+    "Weight: 500g"
+  ]
+}
+  },
+  {
+    "id": 3,
+    "brand": "reva",
+    "name": "3 Piece Lawn Suit-Printed (Unstitched)",
+    "price": "3,199",
+    "images": [
+      "assets/img/products/p9.webp",
+      "assets/img/products/p10.webp",
+      "assets/img/products/p11.webp",
+      "assets/img/products/p12.webp"
+    ],
+    "description": {
+  "Shirt": [
+    "Printed shirt M",
+    "Fabric: lawn"
+  ],
+  "Dupatta": [
+    "Printed dupatta M",
+    "Fabric: chiffon"
+  ],
+  "Trouser": [
+    "Printed trouser M",
+    "Fabric: Cambric"
+  ],
+  "Other Details": [
+    "Color: Green",
+    "Weight: 500g"
+  ]
+}
+  },
+  {
+    "id": 4,
+    "brand": "reva",
+    "name": "3 Piece Lawn Suit-Printed (Unstitched)",
+    "price": "3,099",
+    "images": [
+      "assets/img/products/p13.webp",
+      "assets/img/products/p14.webp",
+      "assets/img/products/p15.webp",
+      "assets/img/products/p16.webp"
+    ],
+   "description": {
+  "Shirt": [
+    "Printed shirt M",
+    "Fabric: lawn"
+  ],
+  "Dupatta": [
+    "Printed dupatta M",
+    "Fabric: chiffon"
+  ],
+  "Trouser": [
+    "Printed trouser M",
+    "Fabric: Cambric"
+  ],
+  "Other Details": [
+    "Color: Blue",
+    "Weight: 500g"
+  ]
+}
+  },
+  {
+    "id": 5,
+    "brand": "reva",
+    "name": "3 Piece Lawn Suit-Printed (Unstitched)",
+    "price": "3,699",
+    "images": [
+      "assets/img/products/p17.webp",
+      "assets/img/products/p18.webp",
+      "assets/img/products/p19.webp",
+      "assets/img/products/p20.webp"
+    ],
+    "description": {
+  "Shirt": [
+    "Printed shirt M",
+    "Fabric: lawn"
+  ],
+  "Dupatta": [
+    "Printed dupatta M",
+    "Fabric: chiffon"
+  ],
+  "Trouser": [
+    "Printed trouser M",
+    "Fabric: Cambric"
+  ],
+  "Other Details": [
+    "Color: Beige",
+    "Weight: 500g"
+  ]
+}
+  },
+  {
+    "id": 6,
+    "brand": "reva",
+    "name": "3 Piece Lawn Suit-Printed (Unstitched)",
+    "price": "3,599",
+    "images": [
+      "assets/img/products/p21.webp",
+      "assets/img/products/p22.webp",
+      "assets/img/products/p23.webp",
+      "assets/img/products/p24.webp"
+    ],
+   "description": {
+  "Shirt": [
+    "Printed shirt M",
+    "Fabric: lawn"
+  ],
+  "Dupatta": [
+    "Printed dupatta M",
+    "Fabric: chiffon"
+  ],
+  "Trouser": [
+    "Printed trouser M",
+    "Fabric: Cambric"
+  ],
+  "Other Details": [
+    "Color: Blue",
+    "Weight: 500g"
+  ]
+}
+  },
+  {
+    "id": 7,
+    "brand": "reva",
+    "name": "3 Piece Lawn Suit-Printed (Unstitched)",
+    "price": "3,899",
+    "images": [
+      "assets/img/products/p25.webp",
+      "assets/img/products/p26.webp",
+      "assets/img/products/p27.webp",
+      "assets/img/products/p28.webp"
+    ],
+    "description": {
+  "Shirt": [
+    "Printed shirt M",
+    "Fabric: lawn"
+  ],
+  "Dupatta": [
+    "Printed dupatta M",
+    "Fabric: chiffon"
+  ],
+  "Trouser": [
+    "Printed trouser M",
+    "Fabric: Cambric"
+  ],
+  "Other Details": [
+    "Color: pink",
+    "Weight: 500g"
+  ]
+}
+  },
+  {
+    "id": 8,
+    "brand": "reva",
+    "name": "3 Piece Lawn Suit-Printed (Unstitched)",
+    "price": "3,999",
+    "images": [
+      "assets/img/products/p29.webp",
+      "assets/img/products/p30.webp",
+      "assets/img/products/p31.webp",
+      "assets/img/products/p32.webp"
+    ],
+   "description": {
+  "Shirt": [
+    "Printed shirt M",
+    "Fabric: lawn"
+  ],
+  "Dupatta": [
+    "Printed dupatta M",
+    "Fabric: chiffon"
+  ],
+  "Trouser": [
+    "Printed trouser M",
+    "Fabric: Cambric"
+  ],
+  "Other Details": [
+    "Color: Dark-pink",
+    "Weight: 500g"
+  ]
+}
+  },
+  {
+    "id": 9,
+    "brand": "reva",
+    "name": "3 Piece Lawn Suit-Printed (Unstitched)",
+    "price": "3,099",
+    "images": [
+      "assets/img/products/p33.webp",
+      "assets/img/products/p34.webp",
+      "assets/img/products/p35.webp",
+      "assets/img/products/p36.webp"
+    ],
+    "description": {
+  "Shirt": [
+    "Printed shirt M",
+    "Fabric: lawn"
+  ],
+  "Dupatta": [
+    "Printed dupatta M",
+    "Fabric: chiffon"
+  ],
+  "Trouser": [
+    "Printed trouser M",
+    "Fabric: Cambric"
+  ],
+  "Other Details": [
+    "Color: Light-Pink",
+    "Weight: 500g"
+  ]
+}
+  },
+  {
+    "id": 10,
+    "brand": "reva",
+    "name": "3 Piece Lawn Suit-Printed (Unstitched)",
+    "price": "3,099",
+    "images": [
+      "assets/img/products/p37.webp",
+      "assets/img/products/p38.webp",
+      "assets/img/products/p39.webp",
+      "assets/img/products/p40.webp"
+    ],
+   "description": {
+  "Shirt": [
+    "Printed shirt M",
+    "Fabric: lawn"
+  ],
+  "Dupatta": [
+    "Printed dupatta M",
+    "Fabric: chiffon"
+  ],
+  "Trouser": [
+    "Printed trouser M",
+    "Fabric: Cambric"
+  ],
+  "Other Details": [
+    "Color: lilac",
+    "Weight: 500g"
+  ]
+}
+  },
+  {
+    "id": 11,
+    "brand": "reva",
+    "name": "3 Piece Lawn Suit-Printed (Unstitched)",
+    "price": "3,199",
+    "images": [
+      "assets/img/products/p41.webp",
+      "assets/img/products/p42.webp",
+      "assets/img/products/p43.webp",
+      "assets/img/products/p44.webp"
+    ],
+    "description": {
+  "Shirt": [
+    "Printed shirt M",
+    "Fabric: lawn"
+  ],
+  "Dupatta": [
+    "Printed dupatta M",
+    "Fabric: chiffon"
+  ],
+  "Trouser": [
+    "Printed trouser M",
+    "Fabric: Cambric"
+  ],
+  "Other Details": [
+    "Color: lilac",
+    "Weight: 500g"
+  ]
+}
+  },
+  {
+    "id": 12,
+    "brand": "reva",
+    "name": "3 Piece Lawn Suit-Printed (Unstitched)",
+    "price": "3,399",
+    "images": [
+      "assets/img/products/p45.webp",
+      "assets/img/products/p46.webp",
+      "assets/img/products/p47.webp",
+      "assets/img/products/p48.webp"
+    ],
+   "description": {
+  "Shirt": [
+    "Printed shirt M",
+    "Fabric: lawn"
+  ],
+  "Dupatta": [
+    "Printed dupatta M",
+    "Fabric: chiffon"
+  ],
+  "Trouser": [
+    "Printed trouser M",
+    "Fabric: Cambric"
+  ],
+  "Other Details": [
+    "Color: Green",
+    "Weight: 500g"
+  ]
+}
+  },
+  {
+    "id": 13,
+    "brand": "reva",
+    "name": "3 Piece Lawn Suit-Printed (Unstitched)",
+    "price": "3,399",
+    "images": [
+      "assets/img/products/p49.webp",
+      "assets/img/products/p50.webp",
+      "assets/img/products/p51.webp",
+      "assets/img/products/p52.webp"
+    ],
+    "description": {
+  "Shirt": [
+    "Printed shirt M",
+    "Fabric: lawn"
+  ],
+  "Dupatta": [
+    "Printed dupatta M",
+    "Fabric: chiffon"
+  ],
+  "Trouser": [
+    "Printed trouser M",
+    "Fabric: Cambric"
+  ],
+  "Other Details": [
+    "Color: light-yellow",
+    "Weight: 500g"
+  ]
+}
+  },
+  {
+    "id": 14,
+    "brand": "reva",
+    "name": "3 Piece Lawn Suit-Printed (Unstitched)",
+    "price": "3,599",
+    "images": [
+      "assets/img/products/p53.webp",
+      "assets/img/products/p54.webp",
+      "assets/img/products/p55.webp",
+      "assets/img/products/p56.webp"
+    ],
+   "description": {
+  "Shirt": [
+    "Printed shirt M",
+    "Fabric: lawn"
+  ],
+  "Dupatta": [
+    "Printed dupatta M",
+    "Fabric: chiffon"
+  ],
+  "Trouser": [
+    "Printed trouser M",
+    "Fabric: Cambric"
+  ],
+  "Other Details": [
+    "Color: Yellow",
+    "Weight: 500g"
+  ]
+}
+  },
+  {
+    "id": 15,
+    "brand": "reva",
+    "name": "3 Piece Lawn Suit-Printed (Unstitched)",
+    "price": "3,699",
+    "images": [
+      "assets/img/products/p57.webp",
+      "assets/img/products/p58.webp",
+      "assets/img/products/p59.webp",
+      "assets/img/products/p60.webp"
+    ],
+    "description": {
+  "Shirt": [
+    "Printed shirt M",
+    "Fabric: lawn"
+  ],
+  "Dupatta": [
+    "Printed dupatta M",
+    "Fabric: chiffon"
+  ],
+  "Trouser": [
+    "Printed trouser M",
+    "Fabric: Cambric"
+  ],
+  "Other Details": [
+    "Color: Black",
+    "Weight: 500g"
+  ]
+}
+  },
+  {
+    "id": 16,
+    "brand": "reva",
+    "name": "3 Piece Lawn Suit-Printed (Unstitched)",
+    "price": "3,999",
+    "images": [
+      "assets/img/products/p61.webp",
+      "assets/img/products/p62.webp",
+      "assets/img/products/p63.webp",
+      "assets/img/products/p64.webp"
+    ],
+   "description": {
+  "Shirt": [
+    "Printed shirt M",
+    "Fabric: lawn"
+  ],
+  "Dupatta": [
+    "Printed dupatta M",
+    "Fabric: chiffon"
+  ],
+  "Trouser": [
+    "Printed trouser M",
+    "Fabric: Cambric"
+  ],
+  "Other Details": [
+    "Color: Beige",
+    "Weight: 500g"
+  ]
+}
+  }
+]
