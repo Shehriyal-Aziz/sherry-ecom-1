@@ -1,19 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tech2etc Ecommerce Tutorial</title>
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="style.css">
-    </head>
+    <title>Reva</title>
+    <!-- fontawsome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-papNM4z+Y9O1v1b7gW5i6IopztpJ+V9G+cnHO2lZrFqWkFyXp3PoMa/n5yR6Bo2tFQp5FocB4N+Q6YB9+YxK5A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="/assets/img/fav2.png" />
+    <!-- css sheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
 
-    <body>
 
-        <script src="script.js"></script>
-    </body>
+</head>
+
+<body>
+    <!-- navbar -->
+    <section id="header">
+        <a href="#"><img src="assets/img/logo.png" class="logo " alt=""></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class=" fa-solid fa-bag-shopping"></i></a></li>
+                <a href="#"><i id="close" class="fas fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <i id="bar" class="fa-solid fa-outdent"> </i>
+        </div>
+    </section>
+    <!-- hero section -->
+    <section id="about-main" >
+        <h2>About Us</h2>
+       <div class="about-box"> 
+         <img src="assets/img/about/history.webp" alt="">
+        <p>
+            Reva was born in 2025 with a simple vision — fashion should be a reflection of who you truly are.
+            <br>
+            <br>
+            From the moment we launched, our goal has been to empower individuals to express themselves through bold,
+            timeless, and accessible clothing. Reva celebrates individuality in every thread — blending tradition with
+            modern design to craft pieces that feel personal, effortless, and unapologetically stylish.
+            <br>
+            <br>
+            Inspired by culture and shaped by creativity, Reva brings together a curated range of ever-evolving styles,
+            colors, and fabrics that redefine the modern wardrobe. Whether it's everyday comfort or a statement look,
+            Reva gives you the freedom to wear your story — confidently, beautifully, and your way.
+        </p>
+       </div>
+
+    </section>
+
+
+
+
+
+    <section id="newsletter" class="section-p1 section-m1 ">
+        <div class="newstext">
+            <h4>Sign Up For Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="you email address">
+            <button class="normal">Sing Up</button>
+        </div>
+
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="/assets/img/logo.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> Shaheed Makhdoom Bilawal near kiran hospital karachi </p>
+            <p><strong>phone:</strong>+92 3162830005</p>
+            <p><strong>hours:</strong> 24/7 Mon - Sun</p>
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-linkedin"></i>
+                    <i class="fab fa-github"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="about.html"> About Us </a>
+            <a href="#"> Delivery Information </a>
+            <a href="#"> Privacy Information </a>
+            <a href="#"> Terms & Conditions </a>
+            <a href="contact.html"> Contact Us </a>
+        </div>
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#newsletter"> Sign In </a>
+            <a href="#"> View Cart </a>
+            <a href="#"> My Wishlist </a>
+            <a href="#"> Track My Order</a>
+            <a href="contact.html"> Help </a>
+        </div>
+
+        <div class="copyright">
+            <p>@ 2025, Shehriyal Aziz -First Website, All Rights Are Reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="assets/js/script.js"></script>
+
+</body>
 
 </html>

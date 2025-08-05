@@ -16,7 +16,7 @@ html {
 img[src$="logo.png"] {
   width: 140px;
   height: auto;
-  
+
 }
 
 h1 {
@@ -588,6 +588,8 @@ footer .copyright {
 
 }
 
+
+
 /* shop page */
 #page-header {
   background-image: url("/assets/img/banner/b1.jpg");
@@ -743,6 +745,7 @@ p {
 .quantity input:focus {
   outline: none;
 }
+
 .quantity button:active {
   background-color: #f0f0f0;
 }
@@ -766,32 +769,80 @@ p {
   line-height: 25px;
 }
 
-.single-pro-details p{
+.single-pro-details p {
   font-size: 16px;
   color: #000;
 }
 
-.single-pro-details h3{
+.single-pro-details h3 {
   color: #000;
   margin: 20px 0;
   text-decoration: underline;
 
 }
-.single-pro-details ul li{
+
+.single-pro-details ul li {
   font-size: 16px;
- list-style: none;
+  list-style: none;
   color: #000;
   margin-bottom: 5px;
+}
+
+/* about */
+#about-main {
+  width: 100%;
+
+
+}
+
+#about-main .about-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 80px;
+}
+
+#about-main h2 {
+  color: black;
+  text-align: center;
+  margin-top: 40px;
+}
+
+#about-main img {
+  border-radius: 10px;
+  width: 40%;
+
+}
+
+#about-main p {
+  color: black;
+  text-align: center;
+  width: 40%;
+  padding-left: 20px;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 200;
 }
 
 /* media querry */
 
 /*  homapge */
 
+@media (max-width: 1024px) {
+  #about-main p {
+    line-height: 1.2;
+    font-size: 12px;
+    font-weight: 200;
+  }
+}
+
 @media (max-width:768px) {
   .section-p1 {
     padding: 40px 40px;
   }
+
+
+
 
   #navbar {
     display: flex;
@@ -894,6 +945,16 @@ p {
 
   }
 
+  #about-main .about-box {
+    padding: 20px 0px;
+  }
+
+  #about-main p {
+    line-height: 1.2;
+    font-size: 10px;
+    font-weight: 300;
+  }
+
 }
 
 @media (max-width: 480px) {
@@ -991,7 +1052,27 @@ p {
     width: 100%;
 
   }
+
   #prodetails .single-pro-details .atc {
-  width: 100%;
+    width: 100%;
+  }
+    #about-main .about-box {
+  padding: 20px 0px;
+  flex-direction: column;
+}
+
+  #about-main p{
+   line-height: 1.2;
+   font-size: 10px;
+   font-weight: 300;
+   height: auto;
+   padding: 10px;
+   width: 100%;
+   
+  }
+
+  #about-main img {
+
+    width: 90%;
 }
 }
