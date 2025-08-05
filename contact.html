@@ -1,22 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <title>Reva</title>
+    <!-- fontawsome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2.css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-papNM4z+Y9O1v1b7gW5i6IopztpJ+V9G+cnHO2lZrFqWkFyXp3PoMa/n5yR6Bo2tFQp5FocB4N+Q6YB9+YxK5A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="/assets/img/fav2.png" />
+    <!-- css sheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
 
-        <link rel="stylesheet" href="style.css">
-    </head>
 
-    <body>
+</head>
+
+<body>
+    <!-- navbar -->
+    <section id="header">
+        <a href="#"><img src="assets/img/logo.png" class="logo " alt=""></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a class="active" href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class=" fa-solid fa-bag-shopping"></i></a></li>
+                <a href="#"><i id="close" class="fas fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <i id="bar" class="fa-solid fa-outdent"> </i>
+        </div>
+    </section>
+    <!-- hero section -->
+    <section id="page-header" class="contact-head">
+        <h2># Let's Talk</h2>
+        <p>LEAVE A MESSAGE, We love to hear from you! </p>
+    </section>
+    <!-- contact details -->
+    <section id="contact-details" class="section-p1">
+        <div class="details">
+            <span>GET IN TOUCH</span>
+            <h2>visit one of our stores or contact us online</h2>
+            <h3>HEAD OFFICE</h3>
+            <div>
+                <li>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Shaheed Makhdoom Bilawal near kiran hospital karachi</p>
+                </li>
+                <li>
+                    <i class="fas fa-phone-alt"></i>
+                    <p>+92 3162830005</p>
+                </li>
+                <li>
+                    <i class="fas fa-envelope"></i>
+                    <p><a href="mailto:info@reva.com">info@reva.com</a></p>
+                </li>
+                <li>
+                    <i class="fas fa-clock"></i>
+                    <p>24/7 Mon - Sun</p>
+                </li>
+            </div>
+        </div>
+        <!-- map -->
+        <div class="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.548517395222!2d67.11067419999999!3d24.947445899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb3390008cfd9ab%3A0x50570e200b0de0fe!2sAptech%20scheme%2033!5e0!3m2!1sen!2snl!4v1754420883830!5m2!1sen!2snl"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+    </section>
+    <!-- contact form -->
+    <section id="contact-form" class="section-p1">
+        <div class="contactform">
+            <h2>Send Message</h2>
+
+            <div class="inputbox">
+                <input type="text" id="name" required>
+                <span>Full Name</span>
+            </div>
+            <div class="inputbox">
+                <input type="email" id="email" required>
+                <span>Email</span>
+            </div>
+            <div class="inputbox">
+                <input type="number" id="number" required>
+                <span>Phone Number</span>
+            </div>
+            <div class="inputbox">
+                <textarea id="message" required></textarea>
+                <span>Type Your Message...</span>
+            </div>
+            <div class="inputbox">
+                <div class="inputbox" onclick="sendmail()">
+                    <input type="submit" value="Send">
+                </div>
+                <br><br>
+
+            </div>
 
 
-        <script src="script.js"></script>
+        </div>
+    </section>
+    <!-- newsletter -->
+    <section id="newsletter" class="section-p1 section-m1 ">
+        <div class="newstext">
+            <h4>Sign Up For Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="you email address">
+            <button class="normal">Sing Up</button>
+        </div>
 
-    </body>
+    </section>
+    <!-- footer -->
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="/assets/img/logo.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> Shaheed Makhdoom Bilawal near kiran hospital karachi </p>
+            <p><strong>phone:</strong>+92 3162830005</p>
+            <p><strong>hours:</strong> 24/7 Mon - Sun</p>
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-linkedin"></i>
+                    <i class="fab fa-github"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="about.html"> About Us </a>
+            <a href="#"> Delivery Information </a>
+            <a href="#"> Privacy Information </a>
+            <a href="#"> Terms & Conditions </a>
+            <a href="contact.html"> Contact Us </a>
+        </div>
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#newsletter"> Sign In </a>
+            <a href="#"> View Cart </a>
+            <a href="#"> My Wishlist </a>
+            <a href="#"> Track My Order</a>
+            <a href="contact.html"> Help </a>
+        </div>
+
+        <div class="copyright">
+            <p>@ 2025, Shehriyal Aziz -First Website, All Rights Are Reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/shop.js"></script>
+</body>
 
 </html>
