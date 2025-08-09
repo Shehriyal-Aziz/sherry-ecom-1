@@ -138,6 +138,125 @@ body {
   display: none;
 }
 
+#lg-bag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+#lg-bag span {
+  position: absolute;
+  top: 12px;
+  right: 4px;
+  background: #ce0d0d;
+  color: white;
+  border-radius: 50%;
+  padding: 3px 5px;
+  font-size: 12px;
+}
+
+#mobile span{
+  position: absolute;
+  top: 6em;
+  right: 9em;
+  background: #ce0d0d;
+  color: white;
+  border-radius: 50%;
+  padding: 3px 5px;
+  font-size: 12px;
+  z-index: -1;
+}
+
+/* Cart Sidebar */
+#cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 350px;
+  max-width: 90%;
+  height: 100%;
+  background: #fff;
+  box-shadow: -4px 0 8px rgba(0,0,0,0.1);
+  transition: right 0.3s ease-in-out;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+}
+
+#cart-sidebar.active {
+  right: 0;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-header h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+#close-cart {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cart-content {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.cart-footer {
+  padding: 15px;
+  border-top: 1px solid #ddd;
+}
+
+.checkout-btn {
+  display: block;
+  text-align: center;
+  background: #088178;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.checkout-btn:hover {
+  background: #06665f;
+}
+
+/* Overlay */
+#cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  z-index: 1500;
+}
+
+#cart-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+  #cart-sidebar {
+    width: 100%;
+  }
+}
+
 
 /* home page */
 /* hero section */
@@ -179,7 +298,7 @@ body {
 #feature {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
@@ -1124,7 +1243,7 @@ p {
   }
 
   #feature {
-    justify-content: space-between;
+    justify-content: center;
   }
 
   #product1 .pro {
@@ -1226,4 +1345,15 @@ p {
     width: 100%;
     height: 400px;  
 }
+#mobile span{
+  position: absolute;
+  top: 5em;
+  right: 5em;
+  background: #ce0d0d;
+  color: white;
+  border-radius: 50%;
+  padding: 3px 5px;
+  font-size: 12px;
+}
+
 }
