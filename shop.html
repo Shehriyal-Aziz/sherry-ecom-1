@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Reva</title>
     <!-- fontawsome cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-papNM4z+Y9O1v1b7gW5i6IopztpJ+V9G+cnHO2lZrFqWkFyXp3PoMa/n5yR6Bo2tFQp5FocB4N+Q6YB9+YxK5A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <!-- favicon -->
+    <!-- favicon -->
     <link rel="icon" type="image/png" href="/assets/img/fav2.png" />
     <!-- css sheet -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -28,18 +28,48 @@
 
         <div>
             <ul id="navbar">
-                <li><a href="index.html">Home</a></li>
-                <li><a  class="active" href="shop.html">Shop</a></li>
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li id="lg-bag"><a href="cart.html"><i class=" fa-solid fa-bag-shopping"></i></a></li>
+                <li id="lg-bag">
+                    <a href="#"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
+                        </svg>
+                        <span>0</span></a>
+                </li>
                 <a href="#"><i id="close" class="fas fa-times"></i></a>
             </ul>
         </div>
         <div id="mobile">
-            <i class="fa-solid fa-bag-shopping"></i>
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
+            </svg>
+            <span>0</span>
             <i id="bar" class="fa-solid fa-outdent"> </i>
         </div>
+
+        <!-- Cart Sidebar -->
+        <div id="cart-sidebar">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <i id="close-cart" class="fas fa-times"></i>
+            </div>
+            <div class="cart-content">
+                <p>Your cart is empty</p>
+                <!-- You can dynamically add cart items here -->
+            </div>
+            <div class="cart-footer">
+                <a href="cart.html" class="checkout-btn">Go to proceed</a>
+            </div>
+        </div>
+
+        <!-- Overlay -->
+        <div id="cart-overlay"></div>
     </section>
     <!-- hero section -->
     <section id="page-header">
@@ -48,9 +78,9 @@
     </section>
     <!-- featured product -->
     <section id="product1" class="section-p1">
-       
-        <div class="pro-container" id="product-list"  >
-            <div class="pro" onclick="location.href='sproduct.html?id=1'" >
+
+        <div class="pro-container" id="product-list">
+            <div class="pro" onclick="location.href='sproduct.html?id=1'">
                 <img src="assets/img/products/f1.jpg" alt="">
                 <div class="des">
                     <span>addidas</span>
@@ -66,7 +96,7 @@
                 </div>
                 <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
             </div>
-            <div class="pro" onclick="location.href='sproduct.html?id=2'" >
+            <div class="pro" onclick="location.href='sproduct.html?id=2'">
                 <img src="assets/img/products/f2.jpg" alt="">
                 <div class="des">
                     <span>addidas</span>
@@ -82,7 +112,7 @@
                 </div>
                 <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
             </div>
-            <div class="pro" onclick="location.href='sproduct.html?id=3'" >
+            <div class="pro" onclick="location.href='sproduct.html?id=3'">
                 <img src="assets/img/products/f3.jpg" alt="">
                 <div class="des">
                     <span>addidas</span>
@@ -98,7 +128,7 @@
                 </div>
                 <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
             </div>
-            <div class="pro" onclick="location.href='sproduct.html?id=4'" >
+            <div class="pro" onclick="location.href='sproduct.html?id=4'">
                 <img src="assets/img/products/f4.jpg" alt="">
                 <div class="des">
                     <span>addidas</span>
@@ -114,7 +144,7 @@
                 </div>
                 <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
             </div>
-            <div class="pro" onclick="location.href='sproduct.html?id=5'" >
+            <div class="pro" onclick="location.href='sproduct.html?id=5'">
                 <img src="assets/img/products/f5.jpg" alt="">
                 <div class="des">
                     <span>addidas</span>
@@ -130,7 +160,7 @@
                 </div>
                 <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
             </div>
-            <div class="pro" onclick="location.href='sproduct.html?id=6'" >
+            <div class="pro" onclick="location.href='sproduct.html?id=6'">
                 <img src="assets/img/products/f6.jpg" alt="">
                 <div class="des">
                     <span>addidas</span>
@@ -146,7 +176,7 @@
                 </div>
                 <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
             </div>
-            <div class="pro" onclick="location.href='sproduct.html?id=7'" >
+            <div class="pro" onclick="location.href='sproduct.html?id=7'">
                 <img src="assets/img/products/f7.jpg" alt="">
                 <div class="des">
                     <span>addidas</span>
@@ -162,7 +192,7 @@
                 </div>
                 <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
             </div>
-            <div class="pro" onclick="location.href='sproduct.html?id=8'" >
+            <div class="pro" onclick="location.href='sproduct.html?id=8'">
                 <img src="assets/img/products/f8.jpg" alt="">
                 <div class="des">
                     <span>addidas</span>
@@ -178,7 +208,7 @@
                 </div>
                 <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
             </div>
-            <div class="pro" onclick="location.href='sproduct.html?id=9'" >
+            <div class="pro" onclick="location.href='sproduct.html?id=9'">
                 <img src="assets/img/products/n1.jpg" alt="">
                 <div class="des">
                     <span>addidas</span>
@@ -194,7 +224,7 @@
                 </div>
                 <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
             </div>
-            <div class="pro" onclick="location.href='sproduct.html?id=10'" >
+            <div class="pro" onclick="location.href='sproduct.html?id=10'">
                 <img src="assets/img/products/n2.jpg" alt="">
                 <div class="des">
                     <span>addidas</span>
@@ -210,7 +240,7 @@
                 </div>
                 <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
             </div>
-            <div class="pro" onclick="location.href='sproduct.html?id=11'" >
+            <div class="pro" onclick="location.href='sproduct.html?id=11'">
                 <img src="assets/img/products/n3.jpg" alt="">
                 <div class="des">
                     <span>addidas</span>
@@ -226,7 +256,7 @@
                 </div>
                 <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
             </div>
-            <div class="pro" onclick="location.href='sproduct.html?id=12'" >
+            <div class="pro" onclick="location.href='sproduct.html?id=12'">
                 <img src="assets/img/products/n4.jpg" alt="">
                 <div class="des">
                     <span>addidas</span>
@@ -242,7 +272,7 @@
                 </div>
                 <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
             </div>
-            <div class="pro" onclick="location.href='sproduct.html?id=13'" >
+            <div class="pro" onclick="location.href='sproduct.html?id=13'">
                 <img src="assets/img/products/n5.jpg" alt="">
                 <div class="des">
                     <span>addidas</span>
@@ -258,7 +288,7 @@
                 </div>
                 <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
             </div>
-            <div class="pro" onclick="location.href='sproduct.html?id=14'" >
+            <div class="pro" onclick="location.href='sproduct.html?id=14'">
                 <img src="assets/img/products/n6.jpg" alt="">
                 <div class="des">
                     <span>addidas</span>
@@ -274,7 +304,7 @@
                 </div>
                 <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
             </div>
-            <div class="pro" onclick="location.href='sproduct.html?id=15'" >
+            <div class="pro" onclick="location.href='sproduct.html?id=15'">
                 <img src="assets/img/products/n7.jpg" alt="">
                 <div class="des">
                     <span>addidas</span>
@@ -290,7 +320,7 @@
                 </div>
                 <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
             </div>
-            <div class="pro" onclick="location.href='sproduct.html?id=16'" >
+            <div class="pro" onclick="location.href='sproduct.html?id=16'">
                 <img src="assets/img/products/n8.jpg" alt="">
                 <div class="des">
                     <span>addidas</span>
