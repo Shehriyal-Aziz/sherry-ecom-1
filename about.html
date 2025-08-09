@@ -22,7 +22,7 @@
 
 <body>
     <!-- navbar -->
-     <section id="header">
+   <section id="header">
         <a href="#"><img src="assets/img/logo.png" class="logo " alt=""></a>
 
         <div>
@@ -35,10 +35,12 @@
                     <a href="#"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
+                                d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
                         </svg>
                         <span>0</span></a>
+
                 </li>
+
                 <a href="#"><i id="close" class="fas fa-times"></i></a>
             </ul>
         </div>
@@ -52,24 +54,45 @@
             <i id="bar" class="fa-solid fa-outdent"> </i>
         </div>
 
-        <!-- Cart Sidebar -->
-        <div id="cart-sidebar">
-            <div class="cart-header">
-                <h2>Your Cart</h2>
-                <i id="close-cart" class="fas fa-times"></i>
-            </div>
-            <div class="cart-content">
-                <p>Your cart is empty</p>
-                <!-- You can dynamically add cart items here -->
-            </div>
-            <div class="cart-footer">
-                <a href="cart.html" class="checkout-btn">Go to proceed</a>
-            </div>
+      <!-- Cart Sidebar -->
+<div id="cart-sidebar">
+  <div class="cart-header">
+    <h2>Your Cart</h2>
+    <i id="close-cart" class="fas fa-times"></i>
+  </div>
+  <div class="cart-content">
+    <p>Your cart is empty</p>
+   
+    
+    <div class="cart-item">
+      <img src="..." width="50">
+      <div>
+        <h5>Product Name</h5>
+        <p class="item-price">Price PKR</p>
+        <div class="qty-controls  ">
+          <button class="dec-qty" data-id="...">-</button>
+          <span class="quantity">Qty</span> 
+          <button class="inc-qty" data-id="...">+</button>
         </div>
+      </div>
+      <button class="remove-item" data-id="...">✕</button>
+    </div>
+    
+  </div>
+
+  <div class="cart-total" style="font-weight:bold; padding:10px 15px; font-size:1.1rem;">
+    Total: 0 PKR
+  </div>
+
+  <div class="cart-footer">
+    <a href="cart.html" class="checkout-btn">Go to proceed</a>
+  </div>
+</div>
 
         <!-- Overlay -->
         <div id="cart-overlay"></div>
     </section>
+
     <!-- hero section -->
     <section id="about-main" >
         <h2>About Us</h2>
