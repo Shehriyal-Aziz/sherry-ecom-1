@@ -2,12 +2,12 @@ const bar = document.getElementById('bar');
 const nav = document.getElementById('navbar');
 const close = document.getElementById('close');
 
-if(bar){
+if (bar) {
     bar.addEventListener('click', () => {
         nav.classList.add('active');
     });
 }
-if(close){
+if (close) {
     close.addEventListener('click', () => {
         nav.classList.remove('active');
     });
@@ -40,10 +40,11 @@ cartOverlay.addEventListener("click", () => {
 });
 // saved up
 
-    let cart = [];
 
-    // Fetch and render products dynamically
-    fetch('product.json')
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Fetch and render products dynamically
+fetch('product.json')
     .then(res => res.json())
     .then(products => {
         const shopContainer = document.getElementById('product-list');
@@ -51,18 +52,18 @@ cartOverlay.addEventListener("click", () => {
 
         const featuredContainer = document.getElementById('featured-products');
         if (featuredContainer) {
-        const top8 = products.slice(0, 8);
-        renderProducts(featuredContainer, top8);
+            const top8 = products.slice(0, 8);
+            renderProducts(featuredContainer, top8);
         }
 
         const newArrivalsContainer = document.getElementById('new-arrivals');
         if (newArrivalsContainer) {
-        const last8 = products.slice(-8);
-        renderProducts(newArrivalsContainer, last8);
+            const last8 = products.slice(-8);
+            renderProducts(newArrivalsContainer, last8);
         }
     });
 
-    function renderProducts(container, productArray) {
+function renderProducts(container, productArray) {
     container.innerHTML = productArray.map(product => `
         <div class="pro" data-id="${product.id}">
         <img src="${product.images[0]}" alt="${product.name}">
@@ -87,27 +88,31 @@ cartOverlay.addEventListener("click", () => {
 
     container.querySelectorAll('.pro').forEach(card => {
         card.addEventListener('click', () => {
-        const id = card.getAttribute('data-id');
-        window.location.href = `sproduct.html?productId=${id}`;
+            const id = card.getAttribute('data-id');
+            window.location.href = `sproduct.html?productId=${id}`;
         });
     });
 
     container.querySelectorAll('.add-to-cart').forEach(btn => {
         btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const id = btn.getAttribute('data-id');
-        fetch('product.json')
-            .then(res => res.json())
-            .then(allProducts => {
-            const product = allProducts.find(p => p.id == id);
-            addToCart(product);
-            });
+            e.stopPropagation();
+            const id = btn.getAttribute('data-id');
+            fetch('product.json')
+                .then(res => res.json())
+                .then(allProducts => {
+                    const product = allProducts.find(p => p.id == id);
+                    addToCart(product);
+                });
         });
     });
-    }
+}
 
-    function addToCart(product) {
-    // Remove commas from price string and convert to number
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+
+function addToCart(product) {
     const priceNum = Number(product.price.replace(/,/g, ''));
 
     const existingItem = cart.find(item => item.id === product.id);
@@ -116,14 +121,18 @@ cartOverlay.addEventListener("click", () => {
     } else {
         cart.push({ ...product, price: priceNum, qty: 1 });
     }
+
+    saveCart(); // ✅ Save to localStorage
     updateCartUI();
     openCartSidebar();
-    }
+}
 
 
-    function updateCartUI() {
+
+// Update cart UI
+function updateCartUI() {
     const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-    const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0); // 💰 Calculate total price
+    const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
     const desktopCounter = document.querySelector('#lg-bag span');
     const mobileCounter = document.querySelector('#mobile span');
@@ -139,82 +148,88 @@ cartOverlay.addEventListener("click", () => {
     if (cart.length === 0) {
         cartContent.innerHTML = `<p>Your cart is empty</p>`;
         if (cartFooter) {
-        cartFooter.innerHTML = `<a href="cart.html" class="checkout-btn">Go to proceed</a>`;
+            cartFooter.innerHTML = `<a href="cart.html" class="checkout-btn">Go to proceed</a>`;
         }
+        saveCart(); // ✅ Clear in localStorage if empty
         return;
     }
 
-    cartContent.innerHTML = cart.map(item => `
-    <div class="cart-item">
-        <img src="${item.images[0]}" width="50">
-        <div>
-        <h5>${item.name}</h5>
-        <p class="item-price">${item.price} PKR</p>      <!-- ADD class="item-price" -->
-        <div class="qty-controls">
-            <button class="dec-qty" data-id="${item.id}">-</button>
-            <span class="quantity">${item.qty}</span>        <!-- ADD class="quantity" -->
-            <button class="inc-qty" data-id="${item.id}">+</button>
+cartContent.innerHTML = cart.map(item => `
+        <div class="cart-item">
+            <img src="${item.images[0]}" width="50">
+            <div>
+                <h5>${item.name}</h5>
+                <p class="item-price">${item.price} PKR</p>
+                <div class="qty-controls">
+                    <button class="dec-qty" data-id="${item.id}">-</button>
+                    <span class="quantity">${item.qty}</span>
+                    <button class="inc-qty" data-id="${item.id}">+</button>
+                </div>
+            </div>
+            <button class="remove-item" data-id="${item.id}">✕</button>
         </div>
-        </div>
-        <button class="remove-item" data-id="${item.id}">✕</button>
-    </div>
     `).join('');
 
-
-    // 💰 Update footer with total price
     if (cartFooter) {
         cartFooter.innerHTML = `
-        <div class="cart-total">Total: <strong>${totalPrice.toLocaleString()} PKR</strong></div>
-        <a href="cart.html" class="checkout-btn">Go to proceed</a>
+            <div class="cart-total">Total: <strong>${totalPrice.toLocaleString()} PKR</strong></div>
+            <a href="cart.html" class="checkout-btn">Go to proceed</a>
         `;
     }
 
+    saveCart(); // ✅ Save updated cart
     attachCartEvents();
-    }
+}
 
-    function attachCartEvents() {
+// Quantity & Remove Events
+function attachCartEvents() {
     document.querySelectorAll('.inc-qty').forEach(btn => {
         btn.addEventListener('click', () => {
-        const id = btn.getAttribute('data-id');
-        const item = cart.find(i => i.id == id);
-        if (item) item.qty++;
-        updateCartUI();
+            const id = btn.getAttribute('data-id');
+            const item = cart.find(i => i.id == id);
+            if (item) item.qty++;
+            updateCartUI();
         });
     });
 
     document.querySelectorAll('.dec-qty').forEach(btn => {
         btn.addEventListener('click', () => {
-        const id = btn.getAttribute('data-id');
-        const item = cart.find(i => i.id == id);
-        if (item && item.qty > 1) item.qty--;
-        else cart = cart.filter(i => i.id != id);
-        updateCartUI();
+            const id = btn.getAttribute('data-id');
+            const item = cart.find(i => i.id == id);
+            if (item && item.qty > 1) item.qty--;
+            else cart = cart.filter(i => i.id != id);
+            updateCartUI();
         });
     });
 
     document.querySelectorAll('.remove-item').forEach(btn => {
         btn.addEventListener('click', () => {
-        const id = btn.getAttribute('data-id');
-        cart = cart.filter(i => i.id != id);
-        updateCartUI();
+            const id = btn.getAttribute('data-id');
+            cart = cart.filter(i => i.id != id);
+            updateCartUI();
         });
     });
-    }
+}
 
-    function openCartSidebar() {
+// ==================== LOAD CART ON PAGE LOAD ====================
+document.addEventListener("DOMContentLoaded", () => {
+    updateCartUI(); // ✅ Render saved cart on load
+});
+
+function openCartSidebar() {
     document.getElementById('cart-sidebar').classList.add('open');
     document.getElementById('cart-overlay').classList.add('active');
-    }
+}
 
-    document.getElementById('close-cart')?.addEventListener('click', () => {
+document.getElementById('close-cart')?.addEventListener('click', () => {
     document.getElementById('cart-sidebar').classList.remove('open');
     document.getElementById('cart-overlay').classList.remove('active');
-    });
+});
 
-    document.getElementById('cart-overlay')?.addEventListener('click', () => {
+document.getElementById('cart-overlay')?.addEventListener('click', () => {
     document.getElementById('cart-sidebar').classList.remove('open');
     document.getElementById('cart-overlay').classList.remove('active');
-    });
+});
 
 
 
