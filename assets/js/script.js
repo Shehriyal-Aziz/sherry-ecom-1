@@ -39,355 +39,182 @@ cartOverlay.addEventListener("click", () => {
     cartOverlay.classList.remove("active");
 });
 // saved up
-// let cart = [];
 
-// // Fetch and render products dynamically
-// fetch('product.json')
-//   .then(res => res.json())
-//   .then(products => {
-//     // Shop page
-//     const shopContainer = document.getElementById('product-list');
-//     if (shopContainer) renderProducts(shopContainer, products);
+    let cart = [];
 
-//     // Featured products (first 8)
-//     const featuredContainer = document.getElementById('featured-products');
-//     if (featuredContainer) {
-//       const top8 = products.slice(0, 8);
-//       renderProducts(featuredContainer, top8);
-//     }
+    // Fetch and render products dynamically
+    fetch('product.json')
+    .then(res => res.json())
+    .then(products => {
+        const shopContainer = document.getElementById('product-list');
+        if (shopContainer) renderProducts(shopContainer, products);
 
-//     // New arrivals (last 8)
-//     const newArrivalsContainer = document.getElementById('new-arrivals');
-//     if (newArrivalsContainer) {
-//       const last8 = products.slice(-8);
-//       renderProducts(newArrivalsContainer, last8);
-//     }
-//   });
+        const featuredContainer = document.getElementById('featured-products');
+        if (featuredContainer) {
+        const top8 = products.slice(0, 8);
+        renderProducts(featuredContainer, top8);
+        }
 
-// // Function to render product cards
-// function renderProducts(container, productArray) {
-//   container.innerHTML = productArray.map(product => `
-//     <div class="pro" data-id="${product.id}">
-//       <img src="${product.images[0]}" alt="${product.name}">
-//       <div class="des">
-//         <span>${product.brand}</span>
-//         <h5>${product.name}</h5>
-//         <div class="star">
-//           <i class="fas fa-star"></i><i class="fas fa-star"></i>
-//           <i class="fas fa-star"></i><i class="fas fa-star"></i>
-//           <i class="fas fa-star"></i>
-//         </div>
-//         <h4>${product.price} PKR</h4>
-//       </div>
-//       <button class="add-to-cart" data-id="${product.id}">
-//         <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-//           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-//             d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
-//         </svg>
-//       </button>
-//     </div>
-//   `).join('');
-
-//   // Make product card clickable
-//   container.querySelectorAll('.pro').forEach(card => {
-//     card.addEventListener('click', () => {
-//       const id = card.getAttribute('data-id');
-//       window.location.href = `sproduct.html?productId=${id}`;
-//     });
-//   });
-
-//   // Attach cart icon events (stop propagation so it won't trigger .pro click)
-//   container.querySelectorAll('.add-to-cart').forEach(btn => {
-//     btn.addEventListener('click', (e) => {
-//       e.stopPropagation();
-//       const id = btn.getAttribute('data-id');
-//       fetch('product.json')
-//         .then(res => res.json())
-//         .then(allProducts => {
-//           const product = allProducts.find(p => p.id == id);
-//           addToCart(product);
-//         });
-//     });
-//   });
-// }
-
-// // Add product to cart
-// function addToCart(product) {
-//   const existingItem = cart.find(item => item.id === product.id);
-//   if (existingItem) {
-//     existingItem.qty++;
-//   } else {
-//     cart.push({ ...product, qty: 1 });
-//   }
-//   updateCartUI();
-//   openCartSidebar();
-// }
-
-// // Update cart sidebar + counters
-// function updateCartUI() {
-//   const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-//   const desktopCounter = document.querySelector('#lg-bag span');
-//   const mobileCounter = document.querySelector('#mobile span');
-
-//   if (desktopCounter) desktopCounter.textContent = totalItems;
-//   if (mobileCounter) mobileCounter.textContent = totalItems;
-
-//   const cartContent = document.querySelector('.cart-content');
-//   if (!cartContent) return;
-
-//   if (cart.length === 0) {
-//     cartContent.innerHTML = `<p>Your cart is empty</p>`;
-//     return;
-//   }
-
-//   cartContent.innerHTML = cart.map(item => `
-//     <div class="cart-item">
-//       <img src="${item.images[0]}" width="50">
-//       <div>
-//         <h5>${item.name}</h5>
-//         <p>${item.price} PKR</p>
-//         <div class="qty-controls">
-//           <button class="dec-qty" data-id="${item.id}">-</button>
-//           <span>${item.qty}</span>
-//           <button class="inc-qty" data-id="${item.id}">+</button>
-//         </div>
-//       </div>
-//       <button class="remove-item" data-id="${item.id}">✕</button>
-//     </div>
-//   `).join('');
-
-//   attachCartEvents();
-// }
-
-// // Attach events to quantity buttons & remove
-// function attachCartEvents() {
-//   document.querySelectorAll('.inc-qty').forEach(btn => {
-//     btn.addEventListener('click', () => {
-//       const id = btn.getAttribute('data-id');
-//       const item = cart.find(i => i.id == id);
-//       if (item) item.qty++;
-//       updateCartUI();
-//     });
-//   });
-
-//   document.querySelectorAll('.dec-qty').forEach(btn => {
-//     btn.addEventListener('click', () => {
-//       const id = btn.getAttribute('data-id');
-//       const item = cart.find(i => i.id == id);
-//       if (item && item.qty > 1) item.qty--;
-//       else cart = cart.filter(i => i.id != id);
-//       updateCartUI();
-//     });
-//   });
-
-//   document.querySelectorAll('.remove-item').forEach(btn => {
-//     btn.addEventListener('click', () => {
-//       const id = btn.getAttribute('data-id');
-//       cart = cart.filter(i => i.id != id);
-//       updateCartUI();
-//     });
-//   });
-// }
-
-// // Sidebar open/close
-// function openCartSidebar() {
-//   document.getElementById('cart-sidebar').classList.add('open');
-//   document.getElementById('cart-overlay').classList.add('active');
-// }
-// document.getElementById('close-cart')?.addEventListener('click', () => {
-//   document.getElementById('cart-sidebar').classList.remove('open');
-//   document.getElementById('cart-overlay').classList.remove('active');
-// });
-// document.getElementById('cart-overlay')?.addEventListener('click', () => {
-//   document.getElementById('cart-sidebar').classList.remove('open');
-//   document.getElementById('cart-overlay').classList.remove('active');
-// });
-
-
-
-
-
-
-
-
-
-
-
-let cart = [];
-
-// Fetch and render products dynamically
-fetch('product.json')
-  .then(res => res.json())
-  .then(products => {
-    const shopContainer = document.getElementById('product-list');
-    if (shopContainer) renderProducts(shopContainer, products);
-
-    const featuredContainer = document.getElementById('featured-products');
-    if (featuredContainer) {
-      const top8 = products.slice(0, 8);
-      renderProducts(featuredContainer, top8);
-    }
-
-    const newArrivalsContainer = document.getElementById('new-arrivals');
-    if (newArrivalsContainer) {
-      const last8 = products.slice(-8);
-      renderProducts(newArrivalsContainer, last8);
-    }
-  });
-
-function renderProducts(container, productArray) {
-  container.innerHTML = productArray.map(product => `
-    <div class="pro" data-id="${product.id}">
-      <img src="${product.images[0]}" alt="${product.name}">
-      <div class="des">
-        <span>${product.brand}</span>
-        <h5>${product.name}</h5>
-        <div class="star">
-          <i class="fas fa-star"></i><i class="fas fa-star"></i>
-          <i class="fas fa-star"></i><i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <h4>${product.price} PKR</h4>
-      </div>
-      <button class="add-to-cart" data-id="${product.id}">
-        <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
-        </svg>
-      </button>
-    </div>
-  `).join('');
-
-  container.querySelectorAll('.pro').forEach(card => {
-    card.addEventListener('click', () => {
-      const id = card.getAttribute('data-id');
-      window.location.href = `sproduct.html?productId=${id}`;
+        const newArrivalsContainer = document.getElementById('new-arrivals');
+        if (newArrivalsContainer) {
+        const last8 = products.slice(-8);
+        renderProducts(newArrivalsContainer, last8);
+        }
     });
-  });
 
-  container.querySelectorAll('.add-to-cart').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const id = btn.getAttribute('data-id');
-      fetch('product.json')
-        .then(res => res.json())
-        .then(allProducts => {
-          const product = allProducts.find(p => p.id == id);
-          addToCart(product);
+    function renderProducts(container, productArray) {
+    container.innerHTML = productArray.map(product => `
+        <div class="pro" data-id="${product.id}">
+        <img src="${product.images[0]}" alt="${product.name}">
+        <div class="des">
+            <span>${product.brand}</span>
+            <h5>${product.name}</h5>
+            <div class="star">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            </div>
+            <h4>${product.price} PKR</h4>
+        </div>
+        <button class="add-to-cart" data-id="${product.id}">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
+            </svg>
+        </button>
+        </div>
+    `).join('');
+
+    container.querySelectorAll('.pro').forEach(card => {
+        card.addEventListener('click', () => {
+        const id = card.getAttribute('data-id');
+        window.location.href = `sproduct.html?productId=${id}`;
         });
     });
-  });
-}
 
-function addToCart(product) {
-  // Remove commas from price string and convert to number
-  const priceNum = Number(product.price.replace(/,/g, ''));
-
-  const existingItem = cart.find(item => item.id === product.id);
-  if (existingItem) {
-    existingItem.qty++;
-  } else {
-    cart.push({ ...product, price: priceNum, qty: 1 });
-  }
-  updateCartUI();
-  openCartSidebar();
-}
-
-
-function updateCartUI() {
-  const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-  const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0); // 💰 Calculate total price
-
-  const desktopCounter = document.querySelector('#lg-bag span');
-  const mobileCounter = document.querySelector('#mobile span');
-
-  if (desktopCounter) desktopCounter.textContent = totalItems;
-  if (mobileCounter) mobileCounter.textContent = totalItems;
-
-  const cartContent = document.querySelector('.cart-content');
-  const cartFooter = document.querySelector('.cart-footer');
-
-  if (!cartContent) return;
-
-  if (cart.length === 0) {
-    cartContent.innerHTML = `<p>Your cart is empty</p>`;
-    if (cartFooter) {
-      cartFooter.innerHTML = `<a href="cart.html" class="checkout-btn">Go to proceed</a>`;
+    container.querySelectorAll('.add-to-cart').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = btn.getAttribute('data-id');
+        fetch('product.json')
+            .then(res => res.json())
+            .then(allProducts => {
+            const product = allProducts.find(p => p.id == id);
+            addToCart(product);
+            });
+        });
+    });
     }
-    return;
-  }
 
-  cartContent.innerHTML = cart.map(item => `
-  <div class="cart-item">
-    <img src="${item.images[0]}" width="50">
-    <div>
-      <h5>${item.name}</h5>
-      <p class="item-price">${item.price} PKR</p>      <!-- ADD class="item-price" -->
-      <div class="qty-controls">
-        <button class="dec-qty" data-id="${item.id}">-</button>
-        <span class="quantity">${item.qty}</span>        <!-- ADD class="quantity" -->
-        <button class="inc-qty" data-id="${item.id}">+</button>
-      </div>
+    function addToCart(product) {
+    // Remove commas from price string and convert to number
+    const priceNum = Number(product.price.replace(/,/g, ''));
+
+    const existingItem = cart.find(item => item.id === product.id);
+    if (existingItem) {
+        existingItem.qty++;
+    } else {
+        cart.push({ ...product, price: priceNum, qty: 1 });
+    }
+    updateCartUI();
+    openCartSidebar();
+    }
+
+
+    function updateCartUI() {
+    const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+    const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0); // 💰 Calculate total price
+
+    const desktopCounter = document.querySelector('#lg-bag span');
+    const mobileCounter = document.querySelector('#mobile span');
+
+    if (desktopCounter) desktopCounter.textContent = totalItems;
+    if (mobileCounter) mobileCounter.textContent = totalItems;
+
+    const cartContent = document.querySelector('.cart-content');
+    const cartFooter = document.querySelector('.cart-footer');
+
+    if (!cartContent) return;
+
+    if (cart.length === 0) {
+        cartContent.innerHTML = `<p>Your cart is empty</p>`;
+        if (cartFooter) {
+        cartFooter.innerHTML = `<a href="cart.html" class="checkout-btn">Go to proceed</a>`;
+        }
+        return;
+    }
+
+    cartContent.innerHTML = cart.map(item => `
+    <div class="cart-item">
+        <img src="${item.images[0]}" width="50">
+        <div>
+        <h5>${item.name}</h5>
+        <p class="item-price">${item.price} PKR</p>      <!-- ADD class="item-price" -->
+        <div class="qty-controls">
+            <button class="dec-qty" data-id="${item.id}">-</button>
+            <span class="quantity">${item.qty}</span>        <!-- ADD class="quantity" -->
+            <button class="inc-qty" data-id="${item.id}">+</button>
+        </div>
+        </div>
+        <button class="remove-item" data-id="${item.id}">✕</button>
     </div>
-    <button class="remove-item" data-id="${item.id}">✕</button>
-  </div>
-`).join('');
+    `).join('');
 
 
-  // 💰 Update footer with total price
-  if (cartFooter) {
-    cartFooter.innerHTML = `
-      <div class="cart-total">Total: <strong>${totalPrice.toLocaleString()} PKR</strong></div>
-      <a href="cart.html" class="checkout-btn">Go to proceed</a>
-    `;
-  }
+    // 💰 Update footer with total price
+    if (cartFooter) {
+        cartFooter.innerHTML = `
+        <div class="cart-total">Total: <strong>${totalPrice.toLocaleString()} PKR</strong></div>
+        <a href="cart.html" class="checkout-btn">Go to proceed</a>
+        `;
+    }
 
-  attachCartEvents();
-}
+    attachCartEvents();
+    }
 
-function attachCartEvents() {
-  document.querySelectorAll('.inc-qty').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const id = btn.getAttribute('data-id');
-      const item = cart.find(i => i.id == id);
-      if (item) item.qty++;
-      updateCartUI();
+    function attachCartEvents() {
+    document.querySelectorAll('.inc-qty').forEach(btn => {
+        btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-id');
+        const item = cart.find(i => i.id == id);
+        if (item) item.qty++;
+        updateCartUI();
+        });
     });
-  });
 
-  document.querySelectorAll('.dec-qty').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const id = btn.getAttribute('data-id');
-      const item = cart.find(i => i.id == id);
-      if (item && item.qty > 1) item.qty--;
-      else cart = cart.filter(i => i.id != id);
-      updateCartUI();
+    document.querySelectorAll('.dec-qty').forEach(btn => {
+        btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-id');
+        const item = cart.find(i => i.id == id);
+        if (item && item.qty > 1) item.qty--;
+        else cart = cart.filter(i => i.id != id);
+        updateCartUI();
+        });
     });
-  });
 
-  document.querySelectorAll('.remove-item').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const id = btn.getAttribute('data-id');
-      cart = cart.filter(i => i.id != id);
-      updateCartUI();
+    document.querySelectorAll('.remove-item').forEach(btn => {
+        btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-id');
+        cart = cart.filter(i => i.id != id);
+        updateCartUI();
+        });
     });
-  });
-}
+    }
 
-function openCartSidebar() {
-  document.getElementById('cart-sidebar').classList.add('open');
-  document.getElementById('cart-overlay').classList.add('active');
-}
+    function openCartSidebar() {
+    document.getElementById('cart-sidebar').classList.add('open');
+    document.getElementById('cart-overlay').classList.add('active');
+    }
 
-document.getElementById('close-cart')?.addEventListener('click', () => {
-  document.getElementById('cart-sidebar').classList.remove('open');
-  document.getElementById('cart-overlay').classList.remove('active');
-});
+    document.getElementById('close-cart')?.addEventListener('click', () => {
+    document.getElementById('cart-sidebar').classList.remove('open');
+    document.getElementById('cart-overlay').classList.remove('active');
+    });
 
-document.getElementById('cart-overlay')?.addEventListener('click', () => {
-  document.getElementById('cart-sidebar').classList.remove('open');
-  document.getElementById('cart-overlay').classList.remove('active');
-});
+    document.getElementById('cart-overlay')?.addEventListener('click', () => {
+    document.getElementById('cart-sidebar').classList.remove('open');
+    document.getElementById('cart-overlay').classList.remove('active');
+    });
 
 
 
