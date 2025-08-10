@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shopping Cart</title>
+    <!-- emailjs -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "y28XpRdEv6pESmkWB",
+            });
+        })();
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Spartan", sans-serif;
+
+        }
+
+        body {
+            background: #f9f9f9;
+            margin: 20px;
+        }
+
+        #cart-page h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 40px;
+        }
+
+        #cart-page #cart-items {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 6px rgb(0 0 0 / 0.1);
+        }
+
+        #cart-page .cart-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+            position: relative;
+        }
+
+        #cart-page .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        #cart-page .cart-item-info {
+            flex: 1;
+            margin-left: 15px;
+        }
+
+        #cart-page .cart-item-info h4 {
+            margin: 0 0 6px;
+        }
+
+        #cart-page .cart-item-info p {
+            margin: 0 0 8px;
+            color: #555;
+        }
+
+        #cart-page .qty-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #cart-page .qty-controls button {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 0;
+            user-select: none;
+            color: #333;
+            transition: color 0.2s ease;
+        }
+
+        #cart-page .qty-controls button:hover {
+            color: #088178;
+        }
+
+        #cart-page .qty-controls .quantity {
+            font-size: 18px;
+            min-width: 25px;
+            text-align: center;
+            user-select: none;
+        }
+
+        #cart-page .remove-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: none;
+            border: none;
+            font-size: 22px;
+            cursor: pointer;
+            color: #888;
+            transition: color 0.2s ease;
+            user-select: none;
+        }
+
+        #cart-page .remove-btn:hover {
+            color: #e63946;
+        }
+
+        #cart-page #total-price {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #222;
+            text-align: right;
+        }
+
+        #checkout-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 6px rgb(0 0 0 / 0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px 20px;
+        }
+
+        #checkout-form label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        #checkout-form input,
+        #checkout-form textarea,
+        #checkout-form select {
+            width: 100%;
+            padding: 8px 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-family: "Spartan", sans-serif;
+        }
+
+        #checkout-form textarea {
+            resize: vertical;
+        }
+
+        #checkout-form button {
+            grid-column: span 2;
+            padding: 12px 0;
+            font-size: 18px;
+            background-color: #088178;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #checkout-form button:hover {
+            background-color: #065a54;
+            /* blue-ish */
+        }
+
+        .empty-cart-msg {
+            font-size: 24px;
+            color: #555;
+            text-align: center;
+            margin: 50px 0;
+        }
+
+
+        /* add this to your CSS */
+        .error {
+            border: 2px solid red !important;
+            box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.06);
+        }
+
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            #checkout-form {
+                grid-template-columns: 1fr;
+            }
+
+            #checkout-form button {
+                grid-column: span 2;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 380px) {
+            #cart-items .cart-item-info h4 {
+                font-size: 13px;
+
+            }
+
+            #cart-page #total-price {
+                text-align: center;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div id="cart-page">
+        <h1>Your Shopping Cart</h1>
+
+        <div id="cart-items"></div>
+        <div id="total-price"></div>
+
+        <form id="checkout-form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" />
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" />
+
+            <label for="province">Province</label>
+            <select id="province">
+                <option value="">Select Province</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Sindh">Sindh</option>
+                <option value="Khyber Pakhtunkhwa">Khyber Pakhtunkhwa</option>
+                <option value="Balochistan">Balochistan</option>
+                <option value="Islamabad Capital Territory">Islamabad Capital Territory</option>
+                <option value="Gilgit-Baltistan">Gilgit-Baltistan</option>
+                <option value="Azad Jammu and Kashmir">Azad Jammu and Kashmir</option>
+            </select>
+
+            <label for="country">Country</label>
+            <input type="text" id="country" value="Pakistan" disabled />
+
+            <label for="address" style="grid-column: span 2;">Delivery Address</label>
+            <textarea id="address" rows="4" style="grid-column: span 2;"></textarea>
+
+            <button onclick="sendmail()" type="submit" id="place-order-btn">Place Order</button>
+        </form>
+    </div>
+
+    <script>
+        let products = [];
+
+        async function loadProducts() {
+            try {
+                const res = await fetch('product.json');
+                products = await res.json(); // expect array of { id, name, price, images, ... }
+            } catch (err) {
+                console.error('Failed to load product.json', err);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProducts().then(renderCart); // ensure renderCart runs after products are loaded
+        });
+
+
+        function generateOrderID() {
+            return 'ORD' + Date.now(); // Simple order id based on timestamp
+        }
+        async function sendmail() {
+            // Optional: wait for products if not loaded yet
+            if (!products || products.length === 0) {
+                await loadProducts();
+            }
+
+            const productIds = cart.map(i => i.id).join(','); // e.g. "3,5,6"
+
+            const cartItemsText = cart.map(i => {
+                const p = products.find(x => x.id == i.id) || {};
+                return `ID: ${i.id} | ${p.name || 'Unknown'} | Price: ${p.price ?? i.price} PKR | Qty: ${i.qty}`;
+            }).join('\n');
+
+            const cartItemsHTML = cart.map(i => {
+                const p = products.find(x => x.id == i.id) || {};
+                return `
+      <div style="margin-bottom:10px;">
+        <strong>ID:</strong> ${i.id}<br/>
+        <strong>Name:</strong> ${p.name || 'Unknown'}<br/>
+        <strong>Qty:</strong> ${i.qty}<br/>
+        <strong>Price:</strong> ${p.price ?? i.price} PKR
+      </div>
+    `;
+            }).join('');
+
+            const Params = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                province: document.getElementById('province').value,
+                address: document.getElementById('address').value,
+                order_id: generateOrderID(),
+
+                product_ids: productIds,
+                cart_items: cartItemsText,
+                cart_items_html: cartItemsHTML,
+                total: document.getElementById('total-price').textContent.replace('Total Price: ', '').replace(' PKR', '')
+            };
+
+            emailjs.send('service_o192pgx', 'template_16mc60s', Params);
+                
+        }
+
+
+
+        // Retrieve cart from localStorage or empty array
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function renderCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const totalPriceElem = document.getElementById('total-price');
+            const placeOrderBtn = document.getElementById('place-order-btn');
+            const checkoutForm = document.getElementById('checkout-form');
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="empty-cart-msg">Your cart is empty.</p>';
+                totalPriceElem.textContent = '';
+                placeOrderBtn.disabled = true;
+                checkoutForm.style.display = 'none'; // Hide form
+                return;
+            }
+
+            placeOrderBtn.disabled = false;
+            checkoutForm.style.display = 'grid'; // Show form
+
+            cartItemsContainer.innerHTML = cart.map(item => `
+      <div class="cart-item" data-id="${item.id}">
+        <img src="${item.images[0]}" alt="${item.name}" />
+        <div class="cart-item-info">
+          <h4>${item.name}</h4>
+          <p>Price: ${item.price.toLocaleString()} PKR</p>
+          <div class="qty-controls">
+            <button class="dec-qty" title="Decrease quantity">−</button>
+            <span class="quantity">${item.qty}</span>
+            <button class="inc-qty" title="Increase quantity">+</button>
+            <button class="remove-btn" title="Remove item">✕</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+            const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+            totalPriceElem.textContent = `Total Price: ${total.toLocaleString()} PKR`;
+
+            attachCartEvents();
+        }
+
+
+        function attachCartEvents() {
+            document.querySelectorAll('.inc-qty').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const itemDiv = btn.closest('.cart-item');
+                    const id = itemDiv.getAttribute('data-id');
+                    const item = cart.find(i => i.id == id);
+                    if (item) {
+                        item.qty++;
+                        saveCart();
+                        renderCart();
+                    }
+                });
+            });
+
+            document.querySelectorAll('.dec-qty').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const itemDiv = btn.closest('.cart-item');
+                    const id = itemDiv.getAttribute('data-id');
+                    const item = cart.find(i => i.id == id);
+                    if (item) {
+                        if (item.qty > 1) {  // Prevent quantity below 1
+                            item.qty--;
+                            saveCart();
+                            renderCart();
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('.remove-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const itemDiv = btn.closest('.cart-item');
+                    const id = itemDiv.getAttribute('data-id');
+                    cart = cart.filter(i => i.id != id);
+                    saveCart();
+                    renderCart();
+                });
+            });
+        }
+        document.getElementById('checkout-form').addEventListener('submit', e => {
+            e.preventDefault();
+
+
+
+
+            if (cart.length === 0) {
+                alert('Your cart is empty. Please add products before placing an order.');
+                return;
+            }
+
+            const requiredIds = ['name', 'email', 'phone', 'province', 'address'];
+            let allFilled = true;
+
+            // Clear old errors first
+            requiredIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.classList.remove('error');
+                    el.style.outline = '';
+                    el.style.border = '';
+                }
+            });
+
+            // Check values
+            requiredIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                const val = el.value.trim();
+                if (!val) {
+                    el.classList.add('error');
+                    el.style.border = '2px solid red';
+                    if (allFilled) allFilled = false;
+
+                    // Remove red border when user types/selects something
+                    el.addEventListener('input', function () {
+                        if (this.value.trim()) {
+                            this.classList.remove('error');
+                            this.style.border = '';
+                        }
+                    });
+
+                    // For select dropdowns (like province)
+                    el.addEventListener('change', function () {
+                        if (this.value.trim()) {
+                            this.classList.remove('error');
+                            this.style.border = '';
+                        }
+                    });
+                }
+
+            });
+
+            if (!allFilled) {
+                const firstInvalid = document.querySelector('.error');
+                if (firstInvalid) firstInvalid.focus();
+                return;
+            }
+
+           
+            alert(`Thank you for your order, ${document.getElementById('name').value.trim()}!`);
+
+
+
+            // Clear cart and form
+            cart = [];
+            saveCart();
+            renderCart();
+            e.target.reset();
+
+            // Redirect to homepage after short delay
+            setTimeout(() => {
+                window.location.href = 'index.html';  // Change if your homepage URL is different
+            }, 1500);
+
+
+
+        });
+
+
+        // Initial render on page load
+        document.addEventListener('DOMContentLoaded', renderCart);
+    </script>
+
+</body>
+
+</html>

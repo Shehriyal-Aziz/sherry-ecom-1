@@ -173,6 +173,7 @@ cartContent.innerHTML = cart.map(item => `
     if (cartFooter) {
         cartFooter.innerHTML = `
             <div class="cart-total">Total: <strong>${totalPrice.toLocaleString()} PKR</strong></div>
+            <br>
             <a href="cart.html" class="checkout-btn">Go to proceed</a>
         `;
     }

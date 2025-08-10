@@ -371,6 +371,12 @@ body {
   outline: none;
 }
 
+#cart-sidebar .cart-content p {
+  color: #2e2e22;
+  text-align: center;
+  font-size: large;
+}
+
 /* home page */
 /* hero section */
 
