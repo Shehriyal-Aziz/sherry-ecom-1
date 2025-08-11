@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-papNM4z+Y9O1v1b7gW5i6IopztpJ+V9G+cnHO2lZrFqWkFyXp3PoMa/n5yR6Bo2tFQp5FocB4N+Q6YB9+YxK5A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <!-- favicon -->
     <link rel="icon" type="image/png" href="/assets/img/fav2.png" />
     <!-- css sheet -->
@@ -23,7 +27,7 @@
 
 <body>
     <!-- header -->
-<section id="header">
+    <section id="header">
         <a href="#"><img src="assets/img/logo.png" class="logo " alt=""></a>
 
         <div>
@@ -55,40 +59,40 @@
             <i id="bar" class="fa-solid fa-outdent"> </i>
         </div>
 
-      <!-- Cart Sidebar -->
-<div id="cart-sidebar">
-  <div class="cart-header">
-    <h2>Your Cart</h2>
-    <i id="close-cart" class="fas fa-times"></i>
-  </div>
-  <div class="cart-content">
-    <p>Your cart is empty</p>
-   
-    
-    <div class="cart-item">
-      <img src="..." width="50">
-      <div>
-        <h5>Product Name</h5>
-        <p class="item-price">Price PKR</p>
-        <div class="qty-controls  ">
-          <button class="dec-qty" data-id="...">-</button>
-          <span class="quantity">Qty</span> 
-          <button class="inc-qty" data-id="...">+</button>
+        <!-- Cart Sidebar -->
+        <div id="cart-sidebar">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <i id="close-cart" class="fas fa-times"></i>
+            </div>
+            <div class="cart-content">
+                <p>Your cart is empty</p>
+
+
+                <div class="cart-item">
+                    <img src="..." width="50">
+                    <div>
+                        <h5>Product Name</h5>
+                        <p class="item-price">Price PKR</p>
+                        <div class="qty-controls  ">
+                            <button class="dec-qty" data-id="...">-</button>
+                            <span class="quantity">Qty</span>
+                            <button class="inc-qty" data-id="...">+</button>
+                        </div>
+                    </div>
+                    <button class="remove-item" data-id="...">✕</button>
+                </div>
+
+            </div>
+
+            <div class="cart-total" style="font-weight:bold; padding:10px 15px; font-size:1.1rem;">
+                Total: 0 PKR
+            </div>
+
+            <div class="cart-footer">
+                <a href="cart.html" class="checkout-btn">Go to proceed</a>
+            </div>
         </div>
-      </div>
-      <button class="remove-item" data-id="...">✕</button>
-    </div>
-    
-  </div>
-
-  <div class="cart-total" style="font-weight:bold; padding:10px 15px; font-size:1.1rem;">
-    Total: 0 PKR
-  </div>
-
-  <div class="cart-footer">
-    <a href="cart.html" class="checkout-btn">Go to proceed</a>
-  </div>
-</div>
 
         <!-- Overlay -->
         <div id="cart-overlay"></div>
@@ -162,88 +166,30 @@
     </section>
     <!-- related product -->
     <section id="product1" class="section-p1">
-        <h2>you may also like</h2>
-        <p>summer collection new morden design</p>
-        <div class="pro-container" onclick="location.href='sproduct.html'">
-            <div class="pro">
-                <img src="assets/img/products/f1.jpg" alt="">
-                <div class="des">
-                    <span>addidas</span>
-                    <h5>Cartoon Astrounut T-shirts</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>2,999 PKR</h4>
-                </div>
-                <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
-            </div>
-            <div class="pro">
-                <img src="assets/img/products/f2.jpg" alt="">
-                <div class="des">
-                    <span>addidas</span>
-                    <h5> Flower T-shirts</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>2,999 PKR</h4>
-                </div>
-                <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
-            </div>
-            <div class="pro">
-                <img src="assets/img/products/f3.jpg" alt="">
-                <div class="des">
-                    <span>addidas</span>
-                    <h5>Sleeveless T-shirts</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>2,999 PKR</h4>
-                </div>
-                <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
-            </div>
-            <div class="pro">
-                <img src="assets/img/products/f4.jpg" alt="">
-                <div class="des">
-                    <span>addidas</span>
-                    <h5>Comfort T-shirts</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>2,999 PKR</h4>
-                </div>
-                <a href="cart.html"><img class="cart" src="assets/img/products/cart-shopping-solid-full.svg" alt=""></a>
-            </div>
+        <h2>You may also like</h2>
+        <br>
 
+        <!-- Swiper container -->
+        <div class="swiper">
+            <div class="swiper-wrapper" id="featured-products"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
+
+
     </section>
     <!-- newsletter -->
-    <section id="newsletter" class="section-p1 section-m1 ">
+  <section id="newsletter" class="section-p1 section-m1 ">
         <div class="newstext">
             <h4>Sign Up For Newsletters</h4>
             <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
         </div>
         <div class="form">
-            <input type="text" placeholder="you email address">
-            <button class="normal">Sing Up</button>
+            <input type="text" placeholder="your email address" id="emailInput">
+            <button class="normal" id="clearBtn">Sign Up</button>
         </div>
-
     </section>
+
     <!-- footer -->
     <footer class="section-p1">
         <div class="col">
@@ -262,7 +208,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="col">
             <h4>About</h4>
             <a href="about.html"> About Us </a>
@@ -285,8 +231,8 @@
         </div>
     </footer>
 
-    <script src="assets/js/script.js"></script>
     <script src="assets/js/sproduct.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>

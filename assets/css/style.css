@@ -376,6 +376,10 @@ body {
   text-align: center;
   font-size: large;
 }
+.swiper{
+  z-index: 0 !important;
+}
+
 
 /* home page */
 /* hero section */
@@ -431,6 +435,13 @@ body {
   margin: 15px 0;
 
 }
+#feature h2{
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+  
 
 #feature .fe-box:hover {
   box-shadow: 10px 10px 54px rgba(70, 62, 221, 0.1);
@@ -450,6 +461,7 @@ body {
 #feature .fe-box img {
   width: 100%;
   margin-bottom: 10px;
+  
 }
 
 #feature .fe-box:nth-child(2) h6 {
@@ -1219,6 +1231,16 @@ p {
     font-size: 12px;
     font-weight: 200;
   }
+  #sm-banner .banner-box {
+    
+    min-width: 380px;
+    
+}
+#banner3 .banner-box {
+   
+    min-width: 22%;
+    
+}
 }
 
 @media (max-width:768px) {
@@ -1302,7 +1324,7 @@ p {
   }
 
   #banner {
-    height: 20vh;
+    height: 30vh;
   }
 
   #sm-banner .banner-box {
@@ -1369,13 +1391,25 @@ p {
     width: 155px;
     margin: 0 0 15px 0;
   }
+  #feature .fe-box:nth-child(4)  {
+    display: none;
+}
+
+#feature .fe-box:nth-child(5) {
+  display: none;
+}
+
+#feature .fe-box:nth-child(6) {
+  display: none;
+}
 
   #feature {
-    justify-content: center;
+    justify-content: space-evenly;
   }
 
   #product1 .pro {
     width: 100%;
+    margin: 5px;
 
   }
 
@@ -1393,6 +1427,7 @@ p {
 
   #banner3 {
     padding: 0 20px;
+    display: none;
   }
 
   .banner .banner-box {

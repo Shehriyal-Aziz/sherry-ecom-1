@@ -85,29 +85,115 @@ fetch('product.json')
 // const urlParams = new URLSearchParams(window.location.search);
 // const productId = parseInt(urlParams.get('productId'));
 
-fetch('product.json')
-    .then(res => res.json())
-    .then(products => {
-        const product = products.find(p => p.id === productId);
-        if (!product) return;
+// fetch('product.json')
+//     .then(res => res.json())
+//     .then(products => {
+//         const product = products.find(p => p.id === productId);
+//         if (!product) return;
 
+//         // Main image
+//         document.getElementById('MainImg').src = product.images[0];
+
+//         // Small images
+//         const smallGroup = document.querySelector('.small-img-group');
+//         smallGroup.innerHTML = product.images.map(img =>
+//             `<div class="small-img-col"><img src="${img}" class="small-img" width="100%"></div>`
+//         ).join('');
+
+//         // Product details
+//         document.querySelector('.single-pro-details h6').innerText = product.brand;
+//         document.querySelector('.single-pro-details h4').innerText = product.name;
+//         document.querySelector('.single-pro-details h2').innerText = `${product.price} PKR`;
+
+//         const ul = document.querySelector('.single-pro-details ul');
+//         const desc = product.description;
+//         ul.innerHTML = `
+//             <li><strong>Shirt</strong></li>
+//             ${desc.Shirt.map(d => `<li>${d}</li>`).join('')}
+//             <br>
+//             <li><strong>Dupatta</strong></li>
+//             ${desc.Dupatta.map(d => `<li>${d}</li>`).join('')}
+//             <br>
+//             <li><strong>Trouser</strong></li>
+//             ${desc.Trouser.map(d => `<li>${d}</li>`).join('')}
+//             <br>
+//             <li><strong>Other Details</strong></li>
+//             ${desc["Other Details"].map(d => `<li>${d}</li>`).join('')}
+//         `;
+
+//         // Enable image switching
+//         setTimeout(() => {
+//             const mainImg = document.getElementById('MainImg');
+//             document.querySelectorAll('.small-img').forEach(img =>
+//                 img.addEventListener('click', () => mainImg.src = img.src)
+//             );
+//         }, 100);
+
+//         // 🔹 Add to Cart button logic
+//         const qtyInput = document.getElementById("qty");
+//         document.querySelector('.atc').addEventListener('click', () => {
+//             const qty = parseInt(qtyInput.value) || 1;
+
+//             // Clone product & add correct qty
+//             const productWithQty = { ...product };
+//             for (let i = 0; i < qty; i++) {
+//                 addToCart(productWithQty);
+//             }
+
+//             openCartSidebar();
+//         });
+//     });
+
+fetch('product.json')
+  .then(res => res.json())
+  .then(products => {
+    // 1. Render sliders (featured, new arrivals, shop list)
+    const shopContainer = document.getElementById('product-list');
+    if (shopContainer) renderProducts(shopContainer, products);
+
+    const featuredContainer = document.getElementById('featured-products');
+    if (featuredContainer) {
+      const top8 = products.slice(0, 8);
+      renderProducts(featuredContainer, top8);
+      initSlider(featuredContainer.closest('.swiper'));
+    }
+
+    const newArrivalsContainer = document.getElementById('new-arrivals');
+    if (newArrivalsContainer) {
+      const last8 = products.slice(-8);
+      renderProducts(newArrivalsContainer, last8);
+      initSlider(newArrivalsContainer.closest('.swiper'));
+    }
+
+    // 2. Render single product details by productId (make sure productId is defined in your script)
+    if (typeof productId !== 'undefined') {
+      const product = products.find(p => p.id === productId);
+      if (product) {
         // Main image
         document.getElementById('MainImg').src = product.images[0];
 
         // Small images
         const smallGroup = document.querySelector('.small-img-group');
-        smallGroup.innerHTML = product.images.map(img =>
-            `<div class="small-img-col"><img src="${img}" class="small-img" width="100%"></div>`
-        ).join('');
+        if (smallGroup) {
+          smallGroup.innerHTML = product.images
+            .map(img => `<div class="small-img-col"><img src="${img}" class="small-img" width="100%"></div>`)
+            .join('');
+        }
 
         // Product details
-        document.querySelector('.single-pro-details h6').innerText = product.brand;
-        document.querySelector('.single-pro-details h4').innerText = product.name;
-        document.querySelector('.single-pro-details h2').innerText = `${product.price} PKR`;
+        const brandElem = document.querySelector('.single-pro-details h6');
+        if (brandElem) brandElem.innerText = product.brand;
+
+        const nameElem = document.querySelector('.single-pro-details h4');
+        if (nameElem) nameElem.innerText = product.name;
+
+        const priceElem = document.querySelector('.single-pro-details h2');
+        if (priceElem) priceElem.innerText = `${product.price} PKR`;
 
         const ul = document.querySelector('.single-pro-details ul');
-        const desc = product.description;
-        ul.innerHTML = `
+        if (ul) {
+          const desc = product.description;
+          ul.innerHTML = `
             <li><strong>Shirt</strong></li>
             ${desc.Shirt.map(d => `<li>${d}</li>`).join('')}
             <br>
@@ -119,27 +205,64 @@ fetch('product.json')
             <br>
             <li><strong>Other Details</strong></li>
             ${desc["Other Details"].map(d => `<li>${d}</li>`).join('')}
-        `;
+          `;
+        }
 
         // Enable image switching
         setTimeout(() => {
-            const mainImg = document.getElementById('MainImg');
-            document.querySelectorAll('.small-img').forEach(img =>
-                img.addEventListener('click', () => mainImg.src = img.src)
-            );
+          const mainImg = document.getElementById('MainImg');
+          document.querySelectorAll('.small-img').forEach(img => {
+            img.addEventListener('click', () => {
+              mainImg.src = img.src;
+            });
+          });
         }, 100);
 
-        // 🔹 Add to Cart button logic
+        // Add to Cart button logic
         const qtyInput = document.getElementById("qty");
-        document.querySelector('.atc').addEventListener('click', () => {
+        const atcBtn = document.querySelector('.atc');
+        if (qtyInput && atcBtn) {
+          atcBtn.addEventListener('click', () => {
             const qty = parseInt(qtyInput.value) || 1;
-
-            // Clone product & add correct qty
-            const productWithQty = { ...product };
             for (let i = 0; i < qty; i++) {
-                addToCart(productWithQty);
+              addToCart({ ...product });
             }
-
             openCartSidebar();
-        });
-    });
+          });
+        }
+      }
+    }
+  });
+
+// Initialize Swiper slider function
+function initSlider(swiperElement) {
+  if (!swiperElement) return;
+  new Swiper(swiperElement, {
+    slidesPerView: 4,
+    spaceBetween: 20,
+    navigation: {
+      nextEl: swiperElement.querySelector('.swiper-button-next'),
+      prevEl: swiperElement.querySelector('.swiper-button-prev'),
+    },
+    breakpoints: {
+      0: { slidesPerView: 1 },
+      640: { slidesPerView: 2 },
+      1024: { slidesPerView: 4 },
+    },
+  });
+}
+
+// Make sure your renderProducts function adds 'swiper-slide' class to each slide!
+function renderProducts(container, products) {
+  container.innerHTML = products.map(product => `
+    <div class="swiper-slide">
+      <!-- Example product card -->
+      <img src="${product.images[0]}" alt="${product.name}" />
+      <h3>${product.name}</h3>
+      <p>${product.price} PKR</p>
+    </div>
+  `).join('');
+}
+
+
+    

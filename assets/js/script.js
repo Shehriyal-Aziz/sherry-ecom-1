@@ -43,7 +43,7 @@ cartOverlay.addEventListener("click", () => {
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-// Fetch and render products dynamically
+// Fetch and render products dynamically of new arrivals and feature both
 fetch('product.json')
     .then(res => res.json())
     .then(products => {
@@ -64,8 +64,9 @@ fetch('product.json')
     });
 
 function renderProducts(container, productArray) {
+    const isSlider = container.id === "featured-products" || container.id === "new-arrivals";
     container.innerHTML = productArray.map(product => `
-        <div class="pro" data-id="${product.id}">
+        <div class="pro ${isSlider ? 'swiper-slide' : ''}" data-id="${product.id}">
         <img src="${product.images[0]}" alt="${product.name}">
         <div class="des">
             <span>${product.brand}</span>
@@ -85,6 +86,8 @@ function renderProducts(container, productArray) {
         </button>
         </div>
     `).join('');
+
+
 
     container.querySelectorAll('.pro').forEach(card => {
         card.addEventListener('click', () => {
@@ -154,7 +157,7 @@ function updateCartUI() {
         return;
     }
 
-cartContent.innerHTML = cart.map(item => `
+    cartContent.innerHTML = cart.map(item => `
         <div class="cart-item">
             <img src="${item.images[0]}" width="50">
             <div>
@@ -233,19 +236,54 @@ document.getElementById('cart-overlay')?.addEventListener('click', () => {
 });
 
 
+// code for newsletter section when anyone click btn the input get clear 
+
+const input = document.getElementById('emailInput');
+  const button = document.getElementById('clearBtn');
+
+  // Add click event to the button
+  button.addEventListener('click', () => {
+    input.value = '';
+    alert('thanks for subscribing!'); // Optional: Show an alert or message
+    
+  });
 
 
 
+    fetch('product.json')
+        .then(res => res.json())
+        .then(products => {
+            const shopContainer = document.getElementById('product-list');
+            if (shopContainer) renderProducts(shopContainer, products);
 
+            const featuredContainer = document.getElementById('featured-products');
+            if (featuredContainer) {
+                const top8 = products.slice(0, 8);
+                renderProducts(featuredContainer, top8);
+                initSlider(featuredContainer.closest('.swiper'));
+            }
 
+            const newArrivalsContainer = document.getElementById('new-arrivals');
+            if (newArrivalsContainer) {
+                const last8 = products.slice(-8);
+                renderProducts(newArrivalsContainer, last8);
+                initSlider(newArrivalsContainer.closest('.swiper'));
+            }
+        });
 
-
-
-
-
-
-
-
-
-
+    function initSlider(swiperElement) {
+        new Swiper(swiperElement, {
+            slidesPerView: 4,
+            spaceBetween: 20,
+            navigation: {
+                nextEl: swiperElement.querySelector('.swiper-button-next'),
+                prevEl: swiperElement.querySelector('.swiper-button-prev'),
+            },
+            breakpoints: {
+                0: { slidesPerView: 1 },
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 4 },
+            },
+        });
+    }
 
