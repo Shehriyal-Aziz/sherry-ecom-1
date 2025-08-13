@@ -43,23 +43,30 @@ cartOverlay.addEventListener("click", () => {
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-// Fetch and render products dynamically of new arrivals and feature both
+// fhetch and render products dynamically of new arrivals and feature both
+
+let allProducts = [];
+
 fetch('product.json')
     .then(res => res.json())
     .then(products => {
+        allProducts = products; // store products in memory for later
+
         const shopContainer = document.getElementById('product-list');
-        if (shopContainer) renderProducts(shopContainer, products);
+        if (shopContainer) renderProducts(shopContainer, allProducts);
 
         const featuredContainer = document.getElementById('featured-products');
         if (featuredContainer) {
-            const top8 = products.slice(0, 8);
+            const top8 = allProducts.slice(0, 8);
             renderProducts(featuredContainer, top8);
+            initSlider(featuredContainer.closest('.swiper'));
         }
 
         const newArrivalsContainer = document.getElementById('new-arrivals');
         if (newArrivalsContainer) {
-            const last8 = products.slice(-8);
+            const last8 = allProducts.slice(-8);
             renderProducts(newArrivalsContainer, last8);
+            initSlider(newArrivalsContainer.closest('.swiper'));
         }
     });
 
@@ -67,28 +74,27 @@ function renderProducts(container, productArray) {
     const isSlider = container.id === "featured-products" || container.id === "new-arrivals";
     container.innerHTML = productArray.map(product => `
         <div class="pro ${isSlider ? 'swiper-slide' : ''}" data-id="${product.id}">
-        <img src="${product.images[0]}" alt="${product.name}">
-        <div class="des">
-            <span>${product.brand}</span>
-            <h5>${product.name}</h5>
-            <div class="star">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+            <img src="${product.images[0]}" alt="${product.name}">
+            <div class="des">
+                <span>${product.brand}</span>
+                <h5>${product.name}</h5>
+                <div class="star">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4>${product.price} PKR</h4>
             </div>
-            <h4>${product.price} PKR</h4>
-        </div>
-        <button class="add-to-cart" data-id="${product.id}">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
-            </svg>
-        </button>
+            <button class="add-to-cart" data-id="${product.id}">
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
+                </svg>
+            </button>
         </div>
     `).join('');
 
-
-
+    // Product detail page link
     container.querySelectorAll('.pro').forEach(card => {
         card.addEventListener('click', () => {
             const id = card.getAttribute('data-id');
@@ -96,16 +102,13 @@ function renderProducts(container, productArray) {
         });
     });
 
+    // Add to cart button
     container.querySelectorAll('.add-to-cart').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
             const id = btn.getAttribute('data-id');
-            fetch('product.json')
-                .then(res => res.json())
-                .then(allProducts => {
-                    const product = allProducts.find(p => p.id == id);
-                    addToCart(product);
-                });
+            const product = allProducts.find(p => p.id == id);
+            if (product) addToCart(product);
         });
     });
 }
@@ -129,6 +132,7 @@ function addToCart(product) {
     updateCartUI();
     openCartSidebar();
 }
+
 
 
 
@@ -175,7 +179,7 @@ function updateCartUI() {
 
     if (cartFooter) {
         cartFooter.innerHTML = `
-            <div class="cart-total">Total: <strong>${totalPrice.toLocaleString()} PKR</strong></div>
+            <div class="cart-total">Total: ${totalPrice.toLocaleString()} PKR</div>
             <br>
             <a href="cart.html" class="checkout-btn">Go to proceed</a>
         `;
@@ -239,51 +243,16 @@ document.getElementById('cart-overlay')?.addEventListener('click', () => {
 // code for newsletter section when anyone click btn the input get clear 
 
 const input = document.getElementById('emailInput');
-  const button = document.getElementById('clearBtn');
+const button = document.getElementById('clearBtn');
 
-  // Add click event to the button
-  button.addEventListener('click', () => {
+// Add click event to the button
+button.addEventListener('click', () => {
     input.value = '';
-    alert('thanks for subscribing!'); // Optional: Show an alert or message
-    
-  });
+    alert('thanks for subscribing!'); // Optional: Show an alert or message 
+
+});
 
 
 
-    fetch('product.json')
-        .then(res => res.json())
-        .then(products => {
-            const shopContainer = document.getElementById('product-list');
-            if (shopContainer) renderProducts(shopContainer, products);
 
-            const featuredContainer = document.getElementById('featured-products');
-            if (featuredContainer) {
-                const top8 = products.slice(0, 8);
-                renderProducts(featuredContainer, top8);
-                initSlider(featuredContainer.closest('.swiper'));
-            }
-
-            const newArrivalsContainer = document.getElementById('new-arrivals');
-            if (newArrivalsContainer) {
-                const last8 = products.slice(-8);
-                renderProducts(newArrivalsContainer, last8);
-                initSlider(newArrivalsContainer.closest('.swiper'));
-            }
-        });
-
-    function initSlider(swiperElement) {
-        new Swiper(swiperElement, {
-            slidesPerView: 4,
-            spaceBetween: 20,
-            navigation: {
-                nextEl: swiperElement.querySelector('.swiper-button-next'),
-                prevEl: swiperElement.querySelector('.swiper-button-prev'),
-            },
-            breakpoints: {
-                0: { slidesPerView: 1 },
-                640: { slidesPerView: 2 },
-                1024: { slidesPerView: 4 },
-            },
-        });
-    }
 
